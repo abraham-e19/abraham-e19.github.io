@@ -59,7 +59,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.03) 0%, transparent 30%);
@@ -688,9 +688,57 @@
             color: var(--bg-dark);
         }
 
+        .project-details {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .project-details p {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            flex-grow: 0;
+        }
+
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.2rem;
+        }
+
+        .small-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.2rem;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: var(--transition);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .small-btn:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
         /* ===== COMPÉTENCES BLOC 1 ===== */
         #competences {
             background: var(--bg-dark);
+        }
+
+        .competence-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
         }
 
         /* ===== VEILLE TECHNOLOGIQUE ===== */
@@ -817,6 +865,25 @@
             background: var(--primary-color);
             color: white;
             transform: translateY(-3px);
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .method-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .method-card h4 {
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
         }
 
         /* Galerie d'images veille */
@@ -1051,17 +1118,17 @@
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
-            
+
             .profil-image-container {
                 margin: 0 auto;
             }
-            
+
             .entreprise-header {
                 flex-direction: column;
                 text-align: center;
                 gap: 1.5rem;
             }
-            
+
             .veille-gallery {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1071,20 +1138,20 @@
             nav {
                 padding: 1rem;
             }
-            
+
             .nav-container {
                 flex-wrap: wrap;
             }
-            
+
             .mobile-toggle {
                 display: block;
                 order: 1;
             }
-            
+
             .logo {
                 order: 0;
             }
-            
+
             nav ul {
                 display: none;
                 width: 100%;
@@ -1096,51 +1163,51 @@
                 border-radius: 10px;
                 overflow: hidden;
             }
-            
+
             nav ul.active {
                 display: flex;
             }
-            
+
             nav ul li {
                 width: 100%;
             }
-            
+
             nav ul li a {
                 display: block;
                 padding: 1rem;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
-            
+
             nav ul li:last-child a {
                 border-bottom: none;
             }
-            
+
             section {
                 padding: 5rem 1rem 3rem;
             }
-            
+
             h1 {
                 font-size: 2.5rem;
             }
-            
+
             h2 {
                 font-size: 2rem;
             }
-            
+
             .projets-grid,
             .articles-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .entreprise-card,
             .veille-container {
                 padding: 2rem;
             }
-            
+
             .services-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .veille-gallery {
                 grid-template-columns: 1fr;
             }
@@ -1151,20 +1218,20 @@
                 flex-direction: column;
                 align-items: stretch;
             }
-            
+
             .link-btn {
                 justify-content: center;
             }
-            
+
             .sources-tags {
                 justify-content: center;
             }
-            
+
             .footer-links {
                 flex-direction: column;
                 gap: 1rem;
             }
-            
+
             .profile-image {
                 width: 160px;
                 height: 160px;
@@ -1175,19 +1242,19 @@
         .text-center {
             text-align: center;
         }
-        
+
         .mt-1 { margin-top: 1rem; }
         .mt-2 { margin-top: 2rem; }
         .mt-3 { margin-top: 3rem; }
         .mb-1 { margin-bottom: 1rem; }
         .mb-2 { margin-bottom: 2rem; }
         .mb-3 { margin-bottom: 3rem; }
-        
+
         .lazy-load {
             opacity: 0;
             transition: opacity 0.5s ease;
         }
-        
+
         .lazy-loaded {
             opacity: 1;
         }
@@ -1201,11 +1268,11 @@
                 <i class="fas fa-code logo-icon"></i>
                 <span>Abraham EMMANUEL</span>
             </a>
-            
+
             <button class="mobile-toggle" id="mobileToggle" aria-label="Menu mobile">
                 <i class="fas fa-bars"></i>
             </button>
-            
+
             <ul id="navMenu">
                 <li><a href="#accueil" class="active">Accueil</a></li>
                 <li><a href="#profil">Profil</a></li>
@@ -1217,7 +1284,7 @@
             </ul>
         </div>
     </nav>
-    
+
     <!-- ACCUEIL -->
     <section id="accueil">
         <div class="container">
@@ -1225,19 +1292,19 @@
                 <div class="profile-image">
                     <img src="https://i.imgur.com/BYDyOTs.png" alt="Abraham EMMANUEL - Étudiant BTS SIO">
                 </div>
-                
+
                 <h1>Abraham EMMANUEL</h1>
                 <p>Étudiant en BTS SIO option SISR • Passionné par les infrastructures réseaux et la cybersécurité</p>
                 <p class="hero-subtitle">Lycée Gustave Flaubert, Rouen • BTS SIO option SISR</p>
-                
+
                 <div class="image-container mt-3" style="max-width: 800px; margin: 0 auto; height: 200px;">
-                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                         alt="Infrastructure réseau et serveurs" 
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                         alt="Infrastructure réseau et serveurs"
                          class="lazy-load"
                          loading="lazy">
                     <div class="image-overlay"></div>
                 </div>
-                
+
                 <div class="hero-buttons mt-3">
                     <a href="#profil" class="btn">Découvrir mon parcours</a>
                     <a href="#contact" class="btn btn-secondary" style="margin-left: 1rem;">Me contacter</a>
@@ -1262,13 +1329,13 @@
                     <p>
                         Curieux et autodidacte, je m'intéresse particulièrement aux nouvelles technologies et aux bonnes pratiques en matière de sécurité informatique. J'apprécie les défis techniques et cherche toujours à optimiser les infrastructures pour les rendre plus performantes et sécurisées.
                     </p>
-                    
+
                     <div class="image-container mt-2" style="height: 180px;">
-                        <img src="https://images.unsplash.com/photo-1623479322729-28b25c16b011?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                        <img src="https://images.unsplash.com/photo-1623479322729-28b25c16b011?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                              alt="Data center et infrastructure IT">
                         <div class="image-overlay"></div>
                     </div>
-                    
+
                     <div class="competences">
                         <h4>Compétences techniques</h4>
                         <div class="skills-grid">
@@ -1298,7 +1365,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="profil-links">
                         <a href="https://drive.google.com/uc?export=download&id=1YPcY9ENmow38UgDBo8kJX5fCHjNGgKI9" class="link-btn" download>
                             <i class="fas fa-download"></i> Télécharger CV
@@ -1322,7 +1389,7 @@
             <div class="entreprise-card fade-in">
                 <div class="entreprise-header">
                     <div class="entreprise-logo">
-                        <img src="https://i.imgur.com/eqhUuGd.jpeg" 
+                        <img src="https://i.imgur.com/eqhUuGd.jpeg"
                              alt="Logo Linkt"
                              style="width: 100%; height: 100%; object-fit: contain; padding: 10px; background: white; border-radius: 8px;">
                     </div>
@@ -1344,7 +1411,7 @@
                 </p>
 
                 <div class="entreprise-image">
-                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
                          alt="Infrastructure réseau et télécom - Environnement Linkt"
                          class="lazy-load"
                          loading="lazy">
@@ -1434,11 +1501,23 @@
                             de règles de filtrage, étude de l’architecture réseau et utilisation
                             d’un pare-feu Stormshield.
                         </p>
+
+                        <div class="project-details">
+                            <p><strong>Contexte :</strong> projet réalisé en formation dans un environnement simulé de clinique.</p>
+                            <p><strong>Objectif :</strong> sécuriser les flux réseau et contrôler les accès entre les différentes zones.</p>
+                            <p><strong>Résultat :</strong> meilleure compréhension de la logique de filtrage, de la segmentation réseau et de la sécurité périmétrique.</p>
+                        </div>
+
                         <div class="tags">
                             <span class="tag">Stormshield</span>
                             <span class="tag">Firewall</span>
                             <span class="tag">Réseau</span>
                             <span class="tag">Sécurité</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="small-btn"><i class="fas fa-file-pdf"></i> Voir la production</a>
+                            <a href="#" target="_blank" class="small-btn"><i class="fas fa-image"></i> Voir les preuves</a>
                         </div>
                     </div>
                 </div>
@@ -1450,10 +1529,22 @@
                             Mise en place d’une répartition de charge entre deux serveurs web
                             afin d’assurer une meilleure disponibilité du service.
                         </p>
+
+                        <div class="project-details">
+                            <p><strong>Contexte :</strong> projet technique réalisé en formation autour de la haute disponibilité.</p>
+                            <p><strong>Objectif :</strong> répartir le trafic entre plusieurs serveurs web avec HAProxy.</p>
+                            <p><strong>Résultat :</strong> validation du fonctionnement du load balancing avec tests de répartition sur les nœuds.</p>
+                        </div>
+
                         <div class="tags">
                             <span class="tag">HAProxy</span>
                             <span class="tag">Load Balancing</span>
                             <span class="tag">Linux</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="small-btn"><i class="fas fa-file-pdf"></i> Voir la production</a>
+                            <a href="#" target="_blank" class="small-btn"><i class="fas fa-image"></i> Voir les preuves</a>
                         </div>
                     </div>
                 </div>
@@ -1465,10 +1556,22 @@
                             Administration d’un conteneur Linux avec découverte de l’environnement,
                             manipulation de fichiers, hostname et adresse IP.
                         </p>
+
+                        <div class="project-details">
+                            <p><strong>Contexte :</strong> TP d’administration système sous Linux via conteneur Docker.</p>
+                            <p><strong>Objectif :</strong> découvrir l’environnement d’un conteneur et effectuer des manipulations d’administration.</p>
+                            <p><strong>Résultat :</strong> acquisition de bases concrètes en Linux, conteneurisation et commandes système.</p>
+                        </div>
+
                         <div class="tags">
                             <span class="tag">Docker</span>
                             <span class="tag">Linux</span>
                             <span class="tag">Conteneur</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="small-btn"><i class="fas fa-file-pdf"></i> Voir la production</a>
+                            <a href="#" target="_blank" class="small-btn"><i class="fas fa-image"></i> Voir les preuves</a>
                         </div>
                     </div>
                 </div>
@@ -1480,10 +1583,22 @@
                             Participation au support client niveau 1, à la gestion de tickets
                             et au traitement d’incidents dans un environnement télécom.
                         </p>
+
+                        <div class="project-details">
+                            <p><strong>Contexte :</strong> stage en entreprise au sein d’un opérateur télécom régional.</p>
+                            <p><strong>Objectif :</strong> découvrir le support utilisateur, la gestion des tickets et le traitement d’incidents.</p>
+                            <p><strong>Résultat :</strong> développement de compétences en relation client, qualification des demandes et support de premier niveau.</p>
+                        </div>
+
                         <div class="tags">
                             <span class="tag">Support</span>
                             <span class="tag">Ticketing</span>
                             <span class="tag">Télécom</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="small-btn"><i class="fas fa-file-pdf"></i> Voir la production</a>
+                            <a href="#" target="_blank" class="small-btn"><i class="fas fa-image"></i> Voir les preuves</a>
                         </div>
                     </div>
                 </div>
@@ -1553,6 +1668,29 @@
                 </div>
 
             </div>
+
+            <div class="veille-container fade-in" style="margin-top: 3rem;">
+                <h3 class="veille-theme">Fiche de synthèse et productions associées</h3>
+                <p style="text-align: center;">
+                    Dans cette partie, je présente ma fiche de synthèse E5 ainsi que plusieurs
+                    productions permettant d’illustrer les compétences mobilisées pendant ma formation.
+                </p>
+
+                <div class="competence-links">
+                    <a href="#" target="_blank" class="link-btn">
+                        <i class="fas fa-table"></i> Voir la fiche de synthèse
+                    </a>
+                    <a href="#" target="_blank" class="link-btn">
+                        <i class="fas fa-file-pdf"></i> Production 1
+                    </a>
+                    <a href="#" target="_blank" class="link-btn">
+                        <i class="fas fa-file-pdf"></i> Production 2
+                    </a>
+                    <a href="#" target="_blank" class="link-btn">
+                        <i class="fas fa-file-pdf"></i> Production 3
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1575,7 +1713,7 @@
                     </p>
                 </div>
 
-                <div class="article-card fade-in">
+                <div class="article-card fade-in" style="margin-bottom: 2rem;">
                     <div class="article-icon"><i class="fas fa-key"></i></div>
                     <h4>Le déploiement des Passkeys (Apple, Google, Microsoft)</h4>
                     <p>
@@ -1585,10 +1723,58 @@
                         ainsi que leur rôle dans la réduction des risques liés au phishing.
                     </p>
                 </div>
+
+                <h3 class="veille-theme">Ma méthode de veille</h3>
+
+                <div class="method-grid">
+                    <div class="method-card">
+                        <h4>Outils utilisés</h4>
+                        <p>
+                            J’utilise principalement des sites spécialisés, des blogs techniques,
+                            des sources institutionnelles et des actualités liées à la cybersécurité.
+                        </p>
+                    </div>
+
+                    <div class="method-card">
+                        <h4>Organisation</h4>
+                        <p>
+                            Je classe les informations par thème, puis je sélectionne les articles
+                            les plus pertinents afin d’en rédiger une synthèse claire.
+                        </p>
+                    </div>
+
+                    <div class="method-card">
+                        <h4>Fréquence</h4>
+                        <p>
+                            Je consulte mes sources de manière régulière, en moyenne une à deux fois
+                            par semaine, afin de suivre les évolutions récentes.
+                        </p>
+                    </div>
+                </div>
+
+                <h3 class="veille-theme">Articles analysés</h3>
+
+                <div class="articles-grid">
+                    <div class="article-card fade-in">
+                        <div class="article-icon"><i class="fas fa-newspaper"></i></div>
+                        <h4>Article sur l’évolution du phishing</h4>
+                        <p><strong>Source :</strong> Source spécialisée cybersécurité</p>
+                        <p><strong>Synthèse :</strong> l’article montre que les campagnes de phishing deviennent plus crédibles et plus ciblées, avec des messages mieux rédigés et des pages frauduleuses plus réalistes.</p>
+                        <p><strong>Projection entreprise :</strong> en organisation, cela montre l’importance de la sensibilisation des utilisateurs et du renforcement des moyens d’authentification.</p>
+                    </div>
+
+                    <div class="article-card fade-in">
+                        <div class="article-icon"><i class="fas fa-newspaper"></i></div>
+                        <h4>Article sur les passkeys</h4>
+                        <p><strong>Source :</strong> Source spécialisée / acteur du numérique</p>
+                        <p><strong>Synthèse :</strong> l’article explique comment les passkeys remplacent progressivement les mots de passe classiques grâce à une authentification plus simple et plus sécurisée.</p>
+                        <p><strong>Projection entreprise :</strong> dans un cadre professionnel, cette technologie peut réduire les risques de compromission de comptes et améliorer l’expérience utilisateur.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    
+
     <!-- CONTACT -->
     <section id="contact">
         <div class="container">
@@ -1599,15 +1785,15 @@
                     <p>
                         N'hésitez pas à me contacter pour toute opportunité professionnelle, stage, alternance ou question concernant mon profil. Je serai ravi d'échanger avec vous !
                     </p>
-                    
+
                     <div class="image-container mt-2" style="height: 200px;">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
                              alt="Collaboration et travail d'équipe IT"
                              class="lazy-load"
                              loading="lazy">
                         <div class="image-overlay"></div>
                     </div>
-                    
+
                     <div class="social-links">
                         <a href="mailto:Abraham.emma1906@gmail.com" class="social-link">
                             <div class="social-icon"><i class="fas fa-envelope"></i></div>
@@ -1673,15 +1859,15 @@
                 <span>Abraham EMMANUEL</span>
             </div>
             <p>Étudiant en BTS SIO option SISR • Lycée Gustave Flaubert, Rouen</p>
-            
+
             <div class="image-container mt-2" style="max-width: 400px; height: 150px;">
-                <img src="https://images.unsplash.com/photo-1523059623039-a9ed027e7fad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                <img src="https://images.unsplash.com/photo-1523059623039-a9ed027e7fad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
                      alt="Campus universitaire"
                      class="lazy-load"
                      loading="lazy">
                 <div class="image-overlay"></div>
             </div>
-            
+
             <div class="footer-links">
                 <a href="#accueil">Accueil</a>
                 <a href="#profil">Profil</a>
@@ -1706,14 +1892,14 @@
         // Navigation mobile
         const mobileToggle = document.getElementById('mobileToggle');
         const navMenu = document.getElementById('navMenu');
-        
+
         mobileToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            mobileToggle.innerHTML = navMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
+            mobileToggle.innerHTML = navMenu.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
                 : '<i class="fas fa-bars"></i>';
         });
-        
+
         // Fermer le menu mobile au clic sur un lien
         document.querySelectorAll('#navMenu a').forEach(link => {
             link.addEventListener('click', () => {
@@ -1721,7 +1907,7 @@
                 mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
-        
+
         // Navigation fluide
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1735,35 +1921,35 @@
                 }
             });
         });
-        
+
         // Effet actif sur la navigation
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('mainNav');
             const scrollToTop = document.getElementById('scrollToTop');
-            
+
             if (window.scrollY > 50) {
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
             }
-            
+
             if (window.scrollY > 500) {
                 scrollToTop.classList.add('visible');
             } else {
                 scrollToTop.classList.remove('visible');
             }
-            
+
             let current = '';
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('nav a');
-            
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 if (window.scrollY >= (sectionTop - 200)) {
                     current = section.getAttribute('id');
                 }
             });
-            
+
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${current}`) {
@@ -1771,45 +1957,45 @@
                 }
             });
         });
-        
+
         // Gestion du formulaire de contact
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
             console.log('Données du formulaire:', data);
-            
-            alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.\n\nPour un contact immédiat, vous pouvez également m\'appeler au 07 75 79 03 83.');
+
+            alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.\n\nPour un contact immédiat, vous pouvez également m\\'appeler au 07 75 79 03 83.');
             this.reset();
         });
-        
+
         // Animation au scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('fade-in');
-                    
+
                     if (entry.target.tagName === 'IMG' && entry.target.classList.contains('lazy-load')) {
                         entry.target.classList.add('lazy-loaded');
                     }
                 }
             });
         }, observerOptions);
-        
+
         document.querySelectorAll('.profil-image-container, .projet-card, .article-card, .entreprise-card, .contact-info, .contact-form, .veille-container, .image-container img').forEach(el => {
             observer.observe(el);
         });
-        
+
         // Lazy loading des images
         const lazyImages = document.querySelectorAll('img.lazy-load');
-        
+
         if ('IntersectionObserver' in window) {
             const imageObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1820,20 +2006,20 @@
                     }
                 });
             });
-            
+
             lazyImages.forEach(img => imageObserver.observe(img));
         } else {
             lazyImages.forEach(img => {
                 img.classList.add('lazy-loaded');
             });
         }
-        
+
         // Initialisation
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.hero-content').forEach(el => {
                 el.classList.add('fade-in');
             });
-            
+
             document.querySelectorAll('#accueil img').forEach(img => {
                 img.classList.add('lazy-loaded');
             });
