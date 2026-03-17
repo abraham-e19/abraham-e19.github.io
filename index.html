@@ -1381,115 +1381,173 @@
     </section>
 
  <!-- ENTREPRISE / STAGE -->
-<section id="entreprise">
-    <div class="container">
-        <h2>Mon Stage chez Linkt</h2>
-        <div class="entreprise-card fade-in">
-            <div class="entreprise-header">
-                <div class="entreprise-logo">
-                    <img src="linkt_logo.jpg"
-                         alt="Logo Linkt"
-                         style="width: 100%; height: 100%; object-fit: contain; padding: 10px; background: white; border-radius: 8px;">
+    <section id="entreprise">
+        <div class="container">
+            <h2>Mon Stage chez Linkt</h2>
+            <div class="entreprise-card">
+                <!-- En-tête avec logo et infos -->
+                <div class="entreprise-header">
+                    <div class="entreprise-logo">
+                        <img src="https://i.imgur.com/eqhUuGd.jpeg"
+                             alt="Logo Linkt"
+                             style="width: 100%; height: 100%; object-fit: contain; padding: 10px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    </div>
+                    <div class="entreprise-info">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Linkt - Opérateur Fibre Haut Débit</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 0.3rem;">📍 1 Rue Guglielmo Marconi • 76130 Mont-Saint-Aignan • Normandie</p>
+                        <p style="color: var(--accent); font-weight: 600;">📅 Stage du 12 janvier au 13 février 2026</p>
+                    </div>
                 </div>
-                <div class="entreprise-info">
-                    <h3>Linkt - Opérateur Fibre Haut Débit</h3>
-                    <p>1 Rue Guglielmo Marconi • 76130 Mont-Saint-Aignan • Normandie</p>
-                    <p>Stage du 12 janvier au 13 février 2026</p>
+
+                <!-- Présentation de l'entreprise -->
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 15px; margin: 2rem 0; border-left: 4px solid var(--primary-color);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 1rem; font-size: 1.3rem;">
+                        <i class="fas fa-building"></i> Présentation de l'entreprise
+                    </h4>
+                    <p style="color: var(--text-gray); line-height: 1.8; margin-bottom: 1rem;">
+                        <strong style="color: var(--text-light);">Linkt</strong> est un opérateur télécom alternatif spécialisé dans la fibre optique en Normandie. 
+                        L'entreprise propose des solutions Haut Débit et Très Haut Débit pour les particuliers et les professionnels. 
+                        Dans un secteur très concurrentiel, Linkt se distingue par son ancrage régional et son service client de proximité.
+                    </p>
+                    <p style="color: var(--text-gray); line-height: 1.8; margin-bottom: 1rem;">
+                        Le siège de Linkt est situé à Mont-Saint-Aignan en Normandie. L'entreprise dispose d'une équipe technique 
+                        chargée du support client, du diagnostic des incidents réseau et de l'exploitation des infrastructures télécom.
+                    </p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="https://www.youtube.com/watch?v=YBNN7Z2jmYE" target="_blank" 
+                           style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent); text-decoration: none; font-weight: 500; padding: 0.8rem 1.5rem; background: rgba(6, 182, 212, 0.1); border-radius: 8px; transition: all 0.3s;">
+                            <i class="fab fa-youtube" style="font-size: 1.2rem;"></i> 
+                            Découvrir Linkt en vidéo
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Présentation de l'entreprise</h4>
-            <p style="color: var(--text-gray); margin-bottom: 2rem;">
-                Linkt est un opérateur télécom spécialisé dans les solutions de connectivité
-                et de fibre optique pour les entreprises et les collectivités.
-                L’entreprise propose des services de Très Haut Débit, de téléphonie et
-                d’infrastructures réseau afin d’accompagner les organisations dans leur
-                transformation numérique.
-                <br><br>
-                Le siège de Linkt est situé à Mont-Saint-Aignan en Normandie.
-                L’entreprise dispose d’une équipe technique chargée du support client,
-                du diagnostic des incidents réseau et de l’exploitation des infrastructures télécom.
-                <br><br>
-                <strong>Vision de la vidéo de présentation :</strong>
-                <a href="https://www.youtube.com/watch?v=YBNN7Z2jmYE" target="_blank" style="color: var(--accent); text-decoration: none; margin-left: 0.5rem;">
-                    <i class="fab fa-youtube"></i> Découvrir Linkt en vidéo
-                </a>
-            </p>
-
-            <div class="entreprise-image">
-                <img src="linkt-batiment.jpg"
-                     alt="Bâtiment de l'entreprise Linkt à Mont-Saint-Aignan"
-                     loading="lazy">
-                <div class="image-overlay"></div>
-            </div>
-
-            <div class="entreprise-image" style="margin-top: 1.5rem;">
-                <img src="linkt-accueil.jpg"
-                     alt="Accueil de l'entreprise Linkt"
-                     loading="lazy">
-                <div class="image-overlay"></div>
-            </div>
-
-            <h4 style="color: var(--primary-color); margin-bottom: 1rem; margin-top: 2rem;">Missions réalisées pendant le stage</h4>
-            <ul style="color: var(--text-gray); padding-left: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
-                <li>Traitement des tickets clients via l’outil de ticketing interne</li>
-                <li>Diagnostic d’incidents réseau avant escalade vers les opérateurs</li>
-                <li>Appels sortants avec les clients afin d’effectuer des vérifications techniques : redémarrage des équipements, tests de connectivité</li>
-                <li>Ouverture et suivi de tickets auprès des opérateurs de boucle locale (OBL)</li>
-                <li>Suivi d’interventions techniques sur site avec les techniciens SAV</li>
-                <li>Connexion à distance aux équipements réseau afin de vérifier le rétablissement du service</li>
-                <li>Paramétrage d’équipements réseau Cisco et Keenetic : DHCP, VLAN et DNS</li>
-                <li>Communication écrite avec les clients via les tickets pour suivre l’évolution et la résolution des incidents</li>
-            </ul>
-
-            <h4 style="color: var(--primary-color); margin-bottom: 1rem; margin-top: 2rem;">Encadrement & Objectifs</h4>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-                <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 10px; border-left: 4px solid var(--primary-color);">
-                    <h5 style="color: var(--text-light); margin-bottom: 0.5rem;">Tuteur de stage</h5>
-                    <p style="color: var(--text-gray); margin-bottom: 0.3rem;"><strong>M. Valentin PICHOT</strong></p>
-                    <p style="color: var(--text-gray); font-size: 0.9rem;">Chef d'équipe • valentin.pichot@linkt.fr</p>
+                <!-- Image de l'accueil -->
+                <div style="border-radius: 15px; overflow: hidden; margin: 2rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                    <img src="linkt-accueil.jpg"
+                         alt="Accueil de l'entreprise Linkt"
+                         style="width: 100%; height: auto; display: block;"
+                         loading="lazy">
                 </div>
-                <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 10px; border-left: 4px solid var(--accent);">
-                    <h5 style="color: var(--text-light); margin-bottom: 0.5rem;">Objectifs pédagogiques</h5>
-                    <ul style="color: var(--text-gray); padding-left: 1.2rem; font-size: 0.95rem;">
-                        <li>Découvrir l'infrastructure d'un opérateur télécom</li>
-                        <li>Maîtriser les outils de support client IT</li>
-                        <li>Comprendre la gestion d'incidents réseau</li>
-                        <li>Développer des compétences en relation client</li>
-                    </ul>
+
+                <!-- Missions du stage -->
+                <div style="margin: 3rem 0;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 1.5rem; font-size: 1.3rem;">
+                        <i class="fas fa-tasks"></i> Missions réalisées pendant le stage
+                    </h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent); transition: all 0.3s;">
+                            <p style="color: var(--text-gray); line-height: 1.6;">
+                                ✓ Traitement des tickets clients via l'outil de ticketing interne
+                            </p>
+                        </div>
+                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent);">
+                            <p style="color: var(--text-gray); line-height: 1.6;">
+                                ✓ Diagnostic d'incidents réseau avant escalade vers les opérateurs
+                            </p>
+                        </div>
+                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent);">
+                            <p style="color: var(--text-gray); line-height: 1.6;">
+                                ✓ Appels sortants : vérifications techniques, redémarrage équipements, tests de connectivité
+                            </p>
+                        </div>
+                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent);">
+                            <p style="color: var(--text-gray); line-height: 1.6;">
+                                ✓ Ouverture et suivi de tickets auprès des opérateurs de boucle locale (OBL)
+                            </p>
+                        </div>
+                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent);">
+                            <p style="color: var(--text-gray); line-height: 1.6;">
+                                ✓ Suivi d'interventions techniques sur site avec les techniciens SAV
+                            </p>
+                        </div>
+                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent);">
+                            <p style="color: var(--text-gray); line-height: 1.6;">
+                                ✓ Connexion à distance aux équipements réseau pour vérifier le rétablissement du service
+                            </p>
+                        </div>
+                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent);">
+                            <p style="color: var(--text-gray); line-height: 1.6;">
+                                ✓ Paramétrage d'équipements réseau Cisco et Keenetic : DHCP, VLAN et DNS
+                            </p>
+                        </div>
+                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent);">
+                            <p style="color: var(--text-gray); line-height: 1.6;">
+                                ✓ Communication écrite avec les clients via les tickets pour suivre l'évolution des incidents
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Compétences développées</h4>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem;">
-                <span style="padding: 0.5rem 1.2rem; background: var(--bg-secondary); border-radius: 20px; color: var(--text-gray); border: 1px solid var(--primary-color); display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-search"></i> Diagnostic d'incidents réseau
-                </span>
-                <span style="padding: 0.5rem 1.2rem; background: var(--bg-secondary); border-radius: 20px; color: var(--text-gray); border: 1px solid var(--primary-color); display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-ticket-alt"></i> Gestion de tickets
-                </span>
-                <span style="padding: 0.5rem 1.2rem; background: var(--bg-secondary); border-radius: 20px; color: var(--text-gray); border: 1px solid var(--primary-color); display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-network-wired"></i> Configuration réseau
-                </span>
-                <span style="padding: 0.5rem 1.2rem; background: var(--bg-secondary); border-radius: 20px; color: var(--text-gray); border: 1px solid var(--primary-color); display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-headset"></i> Support technique
-                </span>
-                <span style="padding: 0.5rem 1.2rem; background: var(--bg-secondary); border-radius: 20px; color: var(--text-gray); border: 1px solid var(--primary-color); display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-comments"></i> Communication professionnelle
-                </span>
-            </div>
+                <!-- Encadrement & Objectifs -->
+                <h4 style="color: var(--primary-color); margin-bottom: 1.5rem; font-size: 1.3rem; margin-top: 3rem;">
+                    <i class="fas fa-user-tie"></i> Encadrement & Objectifs pédagogiques
+                </h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;">
+                    <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 15px; border-left: 4px solid var(--primary-color); box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                        <h5 style="color: var(--text-light); margin-bottom: 1rem; font-size: 1.1rem;">
+                            <i class="fas fa-user-check"></i> Tuteur de stage
+                        </h5>
+                        <p style="color: var(--text-gray); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            <strong style="color: var(--text-light);">M. Valentin PICHOT</strong>
+                        </p>
+                        <p style="color: var(--text-gray); font-size: 0.95rem;">
+                            <i class="fas fa-briefcase"></i> Chef d'équipe
+                        </p>
+                        <p style="color: var(--accent); font-size: 0.9rem; margin-top: 0.5rem;">
+                            <i class="fas fa-envelope"></i> valentin.pichot@linkt.fr
+                        </p>
+                    </div>
+                    <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 15px; border-left: 4px solid var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                        <h5 style="color: var(--text-light); margin-bottom: 1rem; font-size: 1.1rem;">
+                            <i class="fas fa-bullseye"></i> Objectifs pédagogiques
+                        </h5>
+                        <ul style="color: var(--text-gray); padding-left: 1.5rem; font-size: 0.95rem; line-height: 1.8;">
+                            <li>Découvrir l'infrastructure d'un opérateur télécom</li>
+                            <li>Maîtriser les outils de support client IT</li>
+                            <li>Comprendre la gestion d'incidents réseau</li>
+                            <li>Développer des compétences en relation client</li>
+                        </ul>
+                    </div>
+                </div>
 
-            <div class="text-center mt-3">
-                <a href="https://www.linkt.fr" target="_blank" class="btn">
-                    <i class="fas fa-external-link-alt"></i> Site web Linkt
-                </a>
-                <a href="https://www.youtube.com/watch?v=YBNN7Z2jmYE" target="_blank" class="btn btn-secondary" style="margin-left: 1rem;">
-                    <i class="fab fa-youtube"></i> Vidéo de présentation
-                </a>
+                <!-- Compétences développées -->
+                <h4 style="color: var(--primary-color); margin-bottom: 1.5rem; font-size: 1.3rem;">
+                    <i class="fas fa-graduation-cap"></i> Compétences développées
+                </h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem;">
+                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+                        🔍 Diagnostic d'incidents réseau
+                    </span>
+                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+                        🎫 Gestion de tickets
+                    </span>
+                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+                        🌐 Configuration réseau (Cisco, Keenetic)
+                    </span>
+                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+                        🎧 Support technique client
+                    </span>
+                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+                        💬 Communication professionnelle
+                    </span>
+                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+                        🔧 Paramétrage DHCP, VLAN, DNS
+                    </span>
+                </div>
+
+                <!-- Boutons -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="https://www.linkt.fr" target="_blank" class="btn" style="margin: 0.5rem;">
+                        <i class="fas fa-globe"></i> Site web Linkt
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=YBNN7Z2jmYE" target="_blank" class="btn" style="margin: 0.5rem; background: #ff0000;">
+                        <i class="fab fa-youtube"></i> Vidéo de présentation
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- PROJETS -->
     <section id="projets">
