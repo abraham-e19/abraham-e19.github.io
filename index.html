@@ -1284,80 +1284,73 @@
     </nav>
 <!-- LOGO PORTFOLIO EN HAUT À GAUCHE -->
 <div style="position: fixed; top: 2rem; left: 2rem; z-index: 1001;">
-    <a href="#accueil" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-        <span style="font-size: 1.5rem; font-weight: 700; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+    <a href="#accueil" style="text-decoration: none; display: flex; align-items: center; gap: 0.8rem;">
+        <div style="width: 8px; height: 8px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 50%;"></div>
+        <span style="font-size: 1.2rem; font-weight: 700; color: var(--text-light); letter-spacing: 0.5px;">
             PORTFOLIO
-        </span>
-        <span style="font-size: 1.5rem; font-weight: 700; color: var(--text-light);">
-            Abraham EMMANUEL
         </span>
     </a>
 </div>
-   <!-- ACCUEIL -->
+  <!-- ACCUEIL -->
     <section id="accueil">
         <div class="container">
-            <div class="hero-content" style="text-align: center; position: relative; z-index: 1;">
+            <div class="hero-content" style="text-align: center; position: relative; z-index: 1; max-width: 900px; margin: 0 auto;">
                 
-                <!-- Photo de profil ronde -->
-                <div style="width: 180px; height: 180px; margin: 0 auto 2rem; border-radius: 50%; overflow: hidden; border: 5px solid transparent; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); padding: 5px; box-shadow: 0 15px 50px rgba(59, 130, 246, 0.5);">
+                <!-- Photo de profil -->
+                <div style="width: 160px; height: 160px; margin: 0 auto 2.5rem; border-radius: 50%; overflow: hidden; border: 4px solid transparent; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); padding: 4px; box-shadow: 0 10px 40px rgba(59, 130, 246, 0.4);">
                     <img src="https://i.imgur.com/BYDyOTs.png" 
-                         alt="Abraham EMMANUEL - Étudiant BTS SIO" 
+                         alt="Abraham EMMANUEL" 
                          style="width: 100%; height: 100%; object-fit: cover; object-position: center 25%; border-radius: 50%; display: block;">
                 </div>
                 
-                <!-- Nom et titre -->
-                <h1 style="font-size: 3.5rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                <!-- Nom -->
+                <h1 style="font-size: 3.5rem; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;">
                     Abraham EMMANUEL
                 </h1>
                 
-                <p style="font-size: 1.3rem; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 500;">
+                <!-- Titre -->
+                <p style="font-size: 1.4rem; color: var(--text-light); margin-bottom: 1rem; font-weight: 500;">
                     Étudiant en BTS SIO option SISR
                 </p>
                 
-                <p style="font-size: 1.1rem; color: var(--text-gray); margin-bottom: 1rem;">
-                    💻 Passionné par les infrastructures réseaux et la cybersécurité
+                <!-- Description -->
+                <p style="font-size: 1.1rem; color: var(--text-gray); margin-bottom: 0.8rem; line-height: 1.6;">
+                    Passionné par les infrastructures réseaux et la cybersécurité
                 </p>
                 
+                <!-- Localisation -->
                 <p style="font-size: 1rem; color: var(--accent); margin-bottom: 3rem;">
-                    📍 Lycée Gustave Flaubert, Rouen
+                    Lycée Gustave Flaubert, Rouen
                 </p>
 
-                <!-- Image d'illustration -->
-                <div style="max-width: 900px; margin: 0 auto 3rem; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.4); position: relative;">
-                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                         alt="Infrastructure réseau et serveurs"
-                         style="width: 100%; height: 300px; object-fit: cover; display: block;"
-                         loading="lazy">
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3));"></div>
-                </div>
-
-                <!-- Boutons d'action -->
-                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <!-- Boutons -->
+                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 4rem;">
                     <a href="#profil" class="btn" style="display: inline-block; padding: 1rem 2.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);">
-                        📄 Découvrir mon parcours
+                        Découvrir mon parcours
                     </a>
                     <a href="#contact" class="btn" style="display: inline-block; padding: 1rem 2.5rem; background: var(--bg-secondary); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; border: 2px solid var(--primary-color);">
-                        ✉️ Me contacter
+                        Me contacter
                     </a>
                 </div>
 
-                <!-- Stats rapides -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 800px; margin: 4rem auto 0;">
-                    <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎓</div>
-                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color);">2ème année</div>
-                        <div style="color: var(--text-gray); font-size: 0.9rem;">BTS SIO SISR</div>
+                <!-- Stats -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto;">
+                    
+                    <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s;">
+                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--primary-color); margin-bottom: 0.5rem;">2ème année</div>
+                        <div style="color: var(--text-gray); font-size: 1rem;">BTS SIO SISR</div>
                     </div>
-                    <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">💼</div>
-                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent);">Stage chez Linkt</div>
-                        <div style="color: var(--text-gray); font-size: 0.9rem;">Opérateur Télécom</div>
+
+                    <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s;">
+                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem;">Stage chez Linkt</div>
+                        <div style="color: var(--text-gray); font-size: 1rem;">Opérateur Télécom</div>
                     </div>
-                    <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎯</div>
-                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--secondary-color);">Licence Pro</div>
-                        <div style="color: var(--text-gray); font-size: 0.9rem;">En alternance</div>
+
+                    <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s;">
+                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--secondary-color); margin-bottom: 0.5rem;">Licence Pro</div>
+                        <div style="color: var(--text-gray); font-size: 1rem;">En alternance</div>
                     </div>
+
                 </div>
 
             </div>
