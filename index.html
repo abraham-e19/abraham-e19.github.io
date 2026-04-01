@@ -9,26 +9,26 @@
     <style>
         /* ===== VARIABLES CSS ===== */
         :root {
-            --primary-color: #64FFDA;
-            --primary-dark: #4DE8C2;
-            --secondary-color: #8892B0;
-            --bg-dark: #0A192F;
-            --bg-darker: #060E1E;
-            --bg-secondary: #112240;
-            --bg-light: #1D3461;
-            --text-light: #E6F1FF;
-            --text-gray: #8892B0;
-            --text-lighter: #CCD6F6;
-            --accent: #64FFDA;
-            --accent-light: #9EFFED;
+            --primary-color: #0EA5E9;
+            --primary-dark: #0284C7;
+            --secondary-color: #64748B;
+            --bg-dark: #F8FAFC;
+            --bg-darker: #F1F5F9;
+            --bg-secondary: #EFF6FF;
+            --bg-light: #FFFFFF;
+            --text-light: #0A192F;
+            --text-gray: #64748B;
+            --text-lighter: #334155;
+            --accent: #0EA5E9;
+            --accent-light: #38BDF8;
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
             --border-radius: 12px;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
-            --shadow-primary: 0 10px 30px rgba(100, 255, 218, 0.15);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+            --shadow-primary: 0 10px 30px rgba(14, 165, 233, 0.2);
         }
 
         /* ===== RESET & BASE ===== */
@@ -60,9 +60,9 @@
             width: 100%;
             height: 100%;
             background:
-                radial-gradient(circle at 10% 20%, rgba(100, 255, 218, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(136, 146, 176, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.03) 0%, transparent 30%);
+                radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.06) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(100, 116, 139, 0.04) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.04) 0%, transparent 30%);
             z-index: -1;
             pointer-events: none;
         }
@@ -145,17 +145,17 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(10, 25, 47, 0.95);
+            background: rgba(248, 250, 252, 0.95);
             backdrop-filter: blur(15px);
             padding: 1.2rem 2rem;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             transition: var(--transition);
         }
 
         nav.scrolled {
             padding: 0.8rem 2rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
         }
 
         .nav-container {
@@ -259,7 +259,7 @@
             position: absolute;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(100, 255, 218, 0.08), transparent 70%);
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.08), transparent 70%);
             border-radius: 50%;
             top: -300px;
             right: -300px;
@@ -271,7 +271,7 @@
             position: absolute;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(136, 146, 176, 0.08), transparent 70%);
+            background: radial-gradient(circle, rgba(100, 116, 139, 0.06), transparent 70%);
             border-radius: 50%;
             bottom: -200px;
             left: -200px;
@@ -334,7 +334,7 @@
             display: inline-block;
             padding: 1rem 2.5rem;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: #0A192F;
+            color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
@@ -366,7 +366,7 @@
 
         .btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(100, 255, 218, 0.3);
+            box-shadow: 0 15px 40px rgba(14, 165, 233, 0.3);
         }
 
         .btn-secondary {
@@ -377,7 +377,7 @@
 
         .btn-secondary:hover {
             background: var(--primary-color);
-            color: #0A192F;
+            color: white;
         }
 
         /* ===== PROFIL ===== */
@@ -444,7 +444,7 @@
             color: var(--text-light);
             text-decoration: none;
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             transition: var(--transition);
             display: flex;
             align-items: center;
@@ -481,7 +481,7 @@
             border-radius: 10px;
             text-align: center;
             transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .skill-item:hover {
@@ -505,7 +505,7 @@
             background: var(--bg-dark);
             padding: 3rem;
             border-radius: var(--border-radius);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             box-shadow: var(--shadow-lg);
             transition: var(--transition);
         }
@@ -521,7 +521,7 @@
             gap: 2rem;
             margin-bottom: 2rem;
             padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .entreprise-logo {
@@ -614,7 +614,7 @@
             background: var(--bg-secondary);
             border-radius: 15px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             transition: var(--transition);
             height: 100%;
             display: flex;
@@ -689,7 +689,7 @@
         .project-details {
             margin-top: 1rem;
             padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         .project-details p {
@@ -714,7 +714,7 @@
             color: var(--text-light);
             text-decoration: none;
             border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             transition: var(--transition);
             font-size: 0.95rem;
             font-weight: 500;
@@ -756,7 +756,7 @@
             background: var(--bg-dark);
             padding: 3rem;
             border-radius: var(--border-radius);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .veille-theme {
@@ -777,7 +777,7 @@
             background: var(--bg-secondary);
             padding: 2rem;
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             transition: var(--transition);
             height: 100%;
             display: flex;
@@ -852,7 +852,7 @@
             background: var(--bg-secondary);
             border-radius: 20px;
             color: var(--text-gray);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             transition: var(--transition);
             display: flex;
             align-items: center;
@@ -943,7 +943,7 @@
             text-decoration: none;
             color: var(--text-light);
             transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .social-link:hover {
@@ -985,7 +985,7 @@
         .form-group textarea {
             padding: 1rem;
             background: var(--bg-secondary);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: 10px;
             color: var(--text-light);
             font-family: inherit;
@@ -996,7 +996,7 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.15);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
         }
 
         .form-group textarea {
@@ -1010,7 +1010,7 @@
             padding: 3rem 2rem;
             text-align: center;
             color: var(--text-gray);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .footer-content {
@@ -1055,7 +1055,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #0A192F;
+            color: white;
             text-decoration: none;
             font-size: 1.5rem;
             box-shadow: var(--shadow);
@@ -1074,7 +1074,7 @@
 
         .scroll-to-top:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(100, 255, 218, 0.3);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
         }
 
         /* ===== ANIMATIONS ===== */
@@ -1090,8 +1090,8 @@
         }
 
         @keyframes profilePulse {
-            0%, 100% { box-shadow: 0 10px 40px rgba(100, 255, 218, 0.4); }
-            50% { box-shadow: 0 15px 50px rgba(100, 255, 218, 0.6); }
+            0%, 100% { box-shadow: 0 10px 40px rgba(14, 165, 233, 0.2); }
+            50% { box-shadow: 0 15px 50px rgba(14, 165, 233, 0.35); }
         }
 
         @keyframes fadeIn {
@@ -1173,7 +1173,7 @@
             nav ul li a {
                 display: block;
                 padding: 1rem;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             }
 
             nav ul li:last-child a {
@@ -1292,7 +1292,7 @@
             <div class="hero-content" style="text-align: center; position: relative; z-index: 1; max-width: 900px; margin: 0 auto;">
                 
               <!-- Photo de profil carrée -->
-<div style="max-width: 400px; margin: 0 auto 2.5rem; border-radius: 20px; overflow: hidden; border: 4px solid transparent; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); padding: 4px; box-shadow: 0 10px 40px rgba(100, 255, 218, 0.3);">
+<div style="max-width: 400px; margin: 0 auto 2.5rem; border-radius: 20px; overflow: hidden; border: 4px solid transparent; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); padding: 4px; box-shadow: 0 10px 40px rgba(14, 165, 233, 0.2);">
     <img src="https://i.imgur.com/BYDyOTs.png" 
          alt="Abraham EMMANUEL" 
          style="width: 100%; height: auto; object-fit: cover; border-radius: 16px; display: block;">
@@ -1320,7 +1320,7 @@
 
                 <!-- Boutons -->
                 <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 4rem;">
-                    <a href="#profil" class="btn" style="display: inline-block; padding: 1rem 2.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: #0A192F; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(100, 255, 218, 0.2);">
+                    <a href="#profil" class="btn" style="display: inline-block; padding: 1rem 2.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(14, 165, 233, 0.18);">
                         Découvrir mon parcours
                     </a>
                     <a href="#contact" class="btn" style="display: inline-block; padding: 1rem 2.5rem; background: var(--bg-secondary); color: var(--text-light); text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; border: 2px solid var(--primary-color);">
@@ -1331,17 +1331,17 @@
                 <!-- Stats -->
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto;">
                     
-                    <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s;">
+                    <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 15px; border: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.3s;">
                         <div style="font-size: 1.8rem; font-weight: 700; color: var(--primary-color); margin-bottom: 0.5rem;">2ème année</div>
                         <div style="color: var(--text-gray); font-size: 1rem;">BTS SIO SISR</div>
                     </div>
 
-                    <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s;">
+                    <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 15px; border: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.3s;">
                         <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem;">Stage chez Linkt</div>
                         <div style="color: var(--text-gray); font-size: 1rem;">Opérateur Télécom</div>
                     </div>
 
-                    <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s;">
+                    <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 15px; border: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.3s;">
                         <div style="font-size: 1.8rem; font-weight: 700; color: var(--secondary-color); margin-bottom: 0.5rem;">Licence Pro</div>
                         <div style="color: var(--text-gray); font-size: 1rem;">En alternance</div>
                     </div>
@@ -1455,7 +1455,7 @@
                     </p>
                     <div style="margin-top: 1.5rem;">
                         <a href="https://www.youtube.com/watch?v=YBNN7Z2jmYE" target="_blank" 
-                           style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent); text-decoration: none; font-weight: 500; padding: 0.8rem 1.5rem; background: rgba(100, 255, 218, 0.1); border-radius: 8px; transition: all 0.3s;">
+                           style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent); text-decoration: none; font-weight: 500; padding: 0.8rem 1.5rem; background: rgba(14, 165, 233, 0.08); border-radius: 8px; transition: all 0.3s;">
                             <i class="fab fa-youtube" style="font-size: 1.2rem;"></i> 
                             Découvrir Linkt en vidéo
                         </a>
@@ -1556,22 +1556,22 @@
                     <i class="fas fa-graduation-cap"></i> Compétences développées
                 </h4>
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem;">
-                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: #0A192F; font-weight: 500; box-shadow: 0 4px 12px rgba(100, 255, 218, 0.2);">
+                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);">
                         🔍 Diagnostic d'incidents réseau
                     </span>
-                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: #0A192F; font-weight: 500; box-shadow: 0 4px 12px rgba(100, 255, 218, 0.2);">
+                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);">
                         🎫 Gestion de tickets
                     </span>
-                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: #0A192F; font-weight: 500; box-shadow: 0 4px 12px rgba(100, 255, 218, 0.2);">
+                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);">
                         🌐 Configuration réseau (Cisco, Keenetic)
                     </span>
-                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: #0A192F; font-weight: 500; box-shadow: 0 4px 12px rgba(100, 255, 218, 0.2);">
+                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);">
                         🎧 Support technique client
                     </span>
-                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: #0A192F; font-weight: 500; box-shadow: 0 4px 12px rgba(100, 255, 218, 0.2);">
+                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);">
                         💬 Communication professionnelle
                     </span>
-                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: #0A192F; font-weight: 500; box-shadow: 0 4px 12px rgba(100, 255, 218, 0.2);">
+                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);">
                         🔧 Paramétrage DHCP, VLAN, DNS
                     </span>
                 </div>
@@ -1717,7 +1717,7 @@
             <div class="articles-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
 
                 <!-- Compétence 1 -->
-                <div class="article-card" style="background: var(--bg-dark); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s; position: relative; overflow: hidden;">
+                <div class="article-card" style="background: var(--bg-dark); padding: 2rem; border-radius: 15px; border: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.3s; position: relative; overflow: hidden;">
                     <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); opacity: 0.1; border-radius: 50%;"></div>
                     <div class="article-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem; color: white;">
                         <i class="fas fa-database"></i>
@@ -1730,7 +1730,7 @@
                 </div>
 
                 <!-- Compétence 2 -->
-                <div class="article-card" style="background: var(--bg-dark); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s; position: relative; overflow: hidden;">
+                <div class="article-card" style="background: var(--bg-dark); padding: 2rem; border-radius: 15px; border: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.3s; position: relative; overflow: hidden;">
                     <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); opacity: 0.1; border-radius: 50%;"></div>
                     <div class="article-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem; color: white;">
                         <i class="fas fa-life-ring"></i>
@@ -1743,7 +1743,7 @@
                 </div>
 
                 <!-- Compétence 3 -->
-                <div class="article-card" style="background: var(--bg-dark); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s; position: relative; overflow: hidden;">
+                <div class="article-card" style="background: var(--bg-dark); padding: 2rem; border-radius: 15px; border: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.3s; position: relative; overflow: hidden;">
                     <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); opacity: 0.1; border-radius: 50%;"></div>
                     <div class="article-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem; color: white;">
                         <i class="fas fa-globe"></i>
@@ -1756,7 +1756,7 @@
                 </div>
 
                 <!-- Compétence 4 -->
-                <div class="article-card" style="background: var(--bg-dark); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s; position: relative; overflow: hidden;">
+                <div class="article-card" style="background: var(--bg-dark); padding: 2rem; border-radius: 15px; border: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.3s; position: relative; overflow: hidden;">
                     <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); opacity: 0.1; border-radius: 50%;"></div>
                     <div class="article-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem; color: white;">
                         <i class="fas fa-tasks"></i>
@@ -1769,7 +1769,7 @@
                 </div>
 
                 <!-- Compétence 5 -->
-                <div class="article-card" style="background: var(--bg-dark); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s; position: relative; overflow: hidden;">
+                <div class="article-card" style="background: var(--bg-dark); padding: 2rem; border-radius: 15px; border: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.3s; position: relative; overflow: hidden;">
                     <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); opacity: 0.1; border-radius: 50%;"></div>
                     <div class="article-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem; color: white;">
                         <i class="fas fa-user-cog"></i>
@@ -1782,7 +1782,7 @@
                 </div>
 
                 <!-- Compétence 6 -->
-                <div class="article-card" style="background: var(--bg-dark); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s; position: relative; overflow: hidden;">
+                <div class="article-card" style="background: var(--bg-dark); padding: 2rem; border-radius: 15px; border: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.3s; position: relative; overflow: hidden;">
                     <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); opacity: 0.1; border-radius: 50%;"></div>
                     <div class="article-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem; color: white;">
                         <i class="fas fa-chart-line"></i>
@@ -1797,7 +1797,7 @@
             </div>
 
             <!-- Fiche de synthèse -->
-            <div style="background: linear-gradient(135deg, var(--bg-dark), var(--bg-secondary)); padding: 3rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 40px rgba(0,0,0,0.3); text-align: center;">
+            <div style="background: linear-gradient(135deg, var(--bg-dark), var(--bg-secondary)); padding: 3rem; border-radius: 20px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 10px 40px rgba(0,0,0,0.3); text-align: center;">
                 <div style="margin-bottom: 2rem;">
                     <div style="display: inline-block; width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
                         <i class="fas fa-table" style="font-size: 2rem; color: white;"></i>
@@ -1809,7 +1809,7 @@
                     </p>
                 </div>
 
-                <a href="https://drive.google.com/uc?export=view&id=1-qXFtLXZV0-UbiLVtRb69PRtv8l7Jw8S" target="_blank" class="btn" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); padding: 1rem 3rem; font-size: 1.1rem; box-shadow: 0 8px 24px rgba(100, 255, 218, 0.25); color: #0A192F;">
+                <a href="https://drive.google.com/uc?export=view&id=1-qXFtLXZV0-UbiLVtRb69PRtv8l7Jw8S" target="_blank" class="btn" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); padding: 1rem 3rem; font-size: 1.1rem; box-shadow: 0 8px 24px rgba(14, 165, 233, 0.2); color: white;">
                     <i class="fas fa-file-excel"></i> Consulter la fiche de synthèse
                 </a>
             </div>
@@ -1819,46 +1819,46 @@
     <!-- VEILLE TECHNOLOGIQUE -->
 <section id="veille" style="background: var(--bg-dark); padding: 8rem 2rem 4rem;">
     <div class="container" style="max-width: 1200px; margin: 0 auto;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1rem; text-align: center; background: linear-gradient(135deg, #64FFDA, #8892B0); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Veille Technologique</h2>
-        <p style="text-align: center; color: #8892B0; margin-bottom: 3rem; font-size: 1.1rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem; text-align: center; background: linear-gradient(135deg, #0A192F, #0EA5E9); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Veille Technologique</h2>
+        <p style="text-align: center; color: #64748B; margin-bottom: 3rem; font-size: 1.1rem; max-width: 800px; margin-left: auto; margin-right: auto;">
             Dans le cadre de ma formation en BTS SIO, je réalise une veille technologique continue 
             pour me tenir informé des dernières évolutions dans le domaine de la cybersécurité et des infrastructures IT.
         </p>
 
         <!-- Introduction -->
-        <div style="background: #112240; padding: 2rem; border-radius: 15px; margin-bottom: 3rem; border-left: 4px solid #64FFDA;">
-            <h3 style="color: #64FFDA; margin-bottom: 1rem; font-size: 1.3rem;">
+        <div style="background: #EFF6FF; padding: 2rem; border-radius: 15px; margin-bottom: 3rem; border-left: 4px solid #0EA5E9;">
+            <h3 style="color: #0EA5E9; margin-bottom: 1rem; font-size: 1.3rem;">
                 <i class="fas fa-info-circle"></i> Qu'est-ce que la veille technologique ?
             </h3>
-            <p style="color: #8892B0; line-height: 1.8;">
+            <p style="color: #64748B; line-height: 1.8;">
                 La veille technologique consiste à surveiller, collecter et analyser les informations
                 sur les évolutions technologiques dans un domaine précis. Mon approche repose sur la règle des
-                <strong style="color: #E6F1FF;">3S</strong> :
-                <strong style="color: #64FFDA;">Seek</strong> (chercher),
-                <strong style="color: #64FFDA;">Sense</strong> (donner du sens),
-                <strong style="color: #64FFDA;">Share</strong> (partager).
+                <strong style="color: #0A192F;">3S</strong> :
+                <strong style="color: #0EA5E9;">Seek</strong> (chercher),
+                <strong style="color: #0EA5E9;">Sense</strong> (donner du sens),
+                <strong style="color: #0EA5E9;">Share</strong> (partager).
             </p>
         </div>
 
         <!-- Mes sujets -->
-        <h3 style="color: #64FFDA; margin-bottom: 2rem; text-align: center; font-size: 1.8rem;">
+        <h3 style="color: #0EA5E9; margin-bottom: 2rem; text-align: center; font-size: 1.8rem;">
             📌 Mes Sujets de Veille
         </h3>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
             
             <!-- Sujet 1 : Phishing -->
-            <div style="background: linear-gradient(135deg, #112240, #0A192F); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            <div style="background: linear-gradient(135deg, #FFFFFF, #EFF6FF); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
                 <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
                     <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #ef4444, #dc2626); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
                         🎣
                     </div>
                     <div>
                         <span style="display: inline-block; padding: 0.3rem 1rem; background: rgba(239, 68, 68, 0.2); border-radius: 20px; color: #ef4444; font-size: 0.85rem; font-weight: 600;">1ère ANNÉE</span>
-                        <h4 style="color: #E6F1FF; font-size: 1.4rem; margin-top: 0.5rem;">Les attaques de phishing et leurs évolutions</h4>
+                        <h4 style="color: #0A192F; font-size: 1.4rem; margin-top: 0.5rem;">Les attaques de phishing et leurs évolutions</h4>
                     </div>
                 </div>
-                <p style="color: #8892B0; line-height: 1.8; margin-bottom: 1rem;">
+                <p style="color: #64748B; line-height: 1.8; margin-bottom: 1rem;">
                     Le phishing représente 90% des cyberattaques. Ma veille porte sur l'évolution de ces techniques : 
                     spear phishing, vishing, smishing, et l'utilisation croissante de l'IA générative pour créer 
                     des attaques plus sophistiquées et crédibles.
@@ -1871,25 +1871,25 @@
             </div>
 
             <!-- Sujet 2 : Passkeys -->
-            <div style="background: linear-gradient(135deg, #112240, #0A192F); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            <div style="background: linear-gradient(135deg, #FFFFFF, #EFF6FF); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
                 <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
-                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #64FFDA, #8892B0); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #0EA5E9, #64748B); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
                         🔐
                     </div>
                     <div>
-                        <span style="display: inline-block; padding: 0.3rem 1rem; background: rgba(100, 255, 218, 0.15); border-radius: 20px; color: #64FFDA; font-size: 0.85rem; font-weight: 600;">2ème ANNÉE</span>
-                        <h4 style="color: #E6F1FF; font-size: 1.4rem; margin-top: 0.5rem;">Le déploiement des Passkeys</h4>
+                        <span style="display: inline-block; padding: 0.3rem 1rem; background: rgba(14, 165, 233, 0.12); border-radius: 20px; color: #0EA5E9; font-size: 0.85rem; font-weight: 600;">2ème ANNÉE</span>
+                        <h4 style="color: #0A192F; font-size: 1.4rem; margin-top: 0.5rem;">Le déploiement des Passkeys</h4>
                     </div>
                 </div>
-                <p style="color: #8892B0; line-height: 1.8; margin-bottom: 1rem;">
+                <p style="color: #64748B; line-height: 1.8; margin-bottom: 1rem;">
                     Les passkeys, basées sur le standard FIDO2, remplacent progressivement les mots de passe. 
                     Adoptées par Apple, Google et Microsoft, elles offrent une authentification sans mot de passe, 
                     résistante au phishing et plus simple pour les utilisateurs.
                 </p>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                    <span style="padding: 0.4rem 1rem; background: rgba(100, 255, 218, 0.15); border-radius: 15px; color: #64FFDA; font-size: 0.85rem;">FIDO2</span>
-                    <span style="padding: 0.4rem 1rem; background: rgba(100, 255, 218, 0.15); border-radius: 15px; color: #64FFDA; font-size: 0.85rem;">Passwordless</span>
-                    <span style="padding: 0.4rem 1rem; background: rgba(100, 255, 218, 0.15); border-radius: 15px; color: #64FFDA; font-size: 0.85rem;">Zero Trust</span>
+                    <span style="padding: 0.4rem 1rem; background: rgba(14, 165, 233, 0.12); border-radius: 15px; color: #0EA5E9; font-size: 0.85rem;">FIDO2</span>
+                    <span style="padding: 0.4rem 1rem; background: rgba(14, 165, 233, 0.12); border-radius: 15px; color: #0EA5E9; font-size: 0.85rem;">Passwordless</span>
+                    <span style="padding: 0.4rem 1rem; background: rgba(14, 165, 233, 0.12); border-radius: 15px; color: #0EA5E9; font-size: 0.85rem;">Zero Trust</span>
                 </div>
             </div>
         </div>
@@ -1902,79 +1902,79 @@
         <div style="display: grid; gap: 2rem; margin-bottom: 4rem;">
             
             <!-- Article 1 -->
-            <div style="background: #112240; padding: 2rem; border-radius: 15px; border-left: 4px solid #ef4444; transition: all 0.3s;">
+            <div style="background: #FFFFFF; padding: 2rem; border-radius: 15px; border-left: 4px solid #ef4444; transition: all 0.3s;">
                 <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                    <h4 style="color: #E6F1FF; font-size: 1.2rem; flex: 1;">L'IA générative accélère les attaques de phishing</h4>
+                    <h4 style="color: #0A192F; font-size: 1.2rem; flex: 1;">L'IA générative accélère les attaques de phishing</h4>
                     <span style="padding: 0.3rem 1rem; background: rgba(239, 68, 68, 0.2); border-radius: 15px; color: #ef4444; font-size: 0.8rem; white-space: nowrap;">2024</span>
                 </div>
-                <p style="color: #64FFDA; margin-bottom: 1rem; font-size: 0.9rem;">
+                <p style="color: #0EA5E9; margin-bottom: 1rem; font-size: 0.9rem;">
                     📰 Source : ZDNet / Cybersécurité
                 </p>
-                <p style="color: #8892B0; line-height: 1.7; margin-bottom: 1rem;">
+                <p style="color: #64748B; line-height: 1.7; margin-bottom: 1rem;">
                     Les cybercriminels utilisent désormais l'IA générative comme ChatGPT pour créer des emails de phishing 
                     ultra-réalistes, corrigeant automatiquement les fautes et adaptant le ton selon la cible. 
                     Les attaques deviennent plus crédibles et difficiles à détecter.
                 </p>
-                <div style="background: #0A192F; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                    <strong style="color: #E6F1FF;">💼 Impact entreprise :</strong>
-                    <p style="color: #8892B0; margin-top: 0.5rem; line-height: 1.6;">
+                <div style="background: #F8FAFC; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                    <strong style="color: #0A192F;">💼 Impact entreprise :</strong>
+                    <p style="color: #64748B; margin-top: 0.5rem; line-height: 1.6;">
                         Les organisations doivent renforcer la sensibilisation des employés et mettre en place 
                         des solutions d'analyse comportementale pour détecter ces nouvelles formes d'attaques.
                     </p>
                 </div>
-                <a href="https://www.zdnet.fr" target="_blank" style="color: #64FFDA; text-decoration: none; font-weight: 500;">
+                <a href="https://www.zdnet.fr" target="_blank" style="color: #0EA5E9; text-decoration: none; font-weight: 500;">
                     🔗 Lire l'article complet →
                 </a>
             </div>
 
             <!-- Article 2 -->
-            <div style="background: #112240; padding: 2rem; border-radius: 15px; border-left: 4px solid #ef4444;">
+            <div style="background: #FFFFFF; padding: 2rem; border-radius: 15px; border-left: 4px solid #ef4444;">
                 <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                    <h4 style="color: #E6F1FF; font-size: 1.2rem; flex: 1;">Le phishing par deepfake vocal en forte hausse</h4>
+                    <h4 style="color: #0A192F; font-size: 1.2rem; flex: 1;">Le phishing par deepfake vocal en forte hausse</h4>
                     <span style="padding: 0.3rem 1rem; background: rgba(239, 68, 68, 0.2); border-radius: 15px; color: #ef4444; font-size: 0.8rem;">2024</span>
                 </div>
-                <p style="color: #64FFDA; margin-bottom: 1rem; font-size: 0.9rem;">
+                <p style="color: #0EA5E9; margin-bottom: 1rem; font-size: 0.9rem;">
                     📰 Source : ANSSI / Cybersecurity
                 </p>
-                <p style="color: #8892B0; line-height: 1.7; margin-bottom: 1rem;">
+                <p style="color: #64748B; line-height: 1.7; margin-bottom: 1rem;">
                     Le vishing (phishing vocal) atteint un nouveau niveau avec les deepfakes audio permettant 
                     d'imiter la voix de dirigeants. Des entreprises ont perdu des millions suite à de faux ordres 
                     de virement vocaux totalement crédibles.
                 </p>
-                <div style="background: #0A192F; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                    <strong style="color: #E6F1FF;">💼 Impact entreprise :</strong>
-                    <p style="color: #8892B0; margin-top: 0.5rem; line-height: 1.6;">
+                <div style="background: #F8FAFC; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                    <strong style="color: #0A192F;">💼 Impact entreprise :</strong>
+                    <p style="color: #64748B; margin-top: 0.5rem; line-height: 1.6;">
                         Mise en place obligatoire de procédures de validation multi-canal pour les transactions sensibles 
                         et formation des équipes à identifier les signaux d'alerte.
                     </p>
                 </div>
-                <a href="https://www.cert.ssi.gouv.fr" target="_blank" style="color: #64FFDA; text-decoration: none; font-weight: 500;">
+                <a href="https://www.cert.ssi.gouv.fr" target="_blank" style="color: #0EA5E9; text-decoration: none; font-weight: 500;">
                     🔗 Lire l'article complet →
                 </a>
             </div>
 
             <!-- Article 3 -->
-            <div style="background: #112240; padding: 2rem; border-radius: 15px; border-left: 4px solid #ef4444;">
+            <div style="background: #FFFFFF; padding: 2rem; border-radius: 15px; border-left: 4px solid #ef4444;">
                 <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                    <h4 style="color: #E6F1FF; font-size: 1.2rem; flex: 1;">Spear phishing : les attaques ciblées explosent</h4>
+                    <h4 style="color: #0A192F; font-size: 1.2rem; flex: 1;">Spear phishing : les attaques ciblées explosent</h4>
                     <span style="padding: 0.3rem 1rem; background: rgba(239, 68, 68, 0.2); border-radius: 15px; color: #ef4444; font-size: 0.8rem;">2025</span>
                 </div>
-                <p style="color: #64FFDA; margin-bottom: 1rem; font-size: 0.9rem;">
+                <p style="color: #0EA5E9; margin-bottom: 1rem; font-size: 0.9rem;">
                     📰 Source : Le Monde Informatique
                 </p>
-                <p style="color: #8892B0; line-height: 1.7; margin-bottom: 1rem;">
+                <p style="color: #64748B; line-height: 1.7; margin-bottom: 1rem;">
                     Le spear phishing (hameçonnage ciblé) progresse de 40% en 2024. Les attaquants collectent 
                     des données sur LinkedIn et les réseaux sociaux pour personnaliser leurs messages et 
                     maximiser leurs chances de succès auprès de cibles spécifiques.
                 </p>
-                <div style="background: #0A192F; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                    <strong style="color: #E6F1FF;">💼 Impact entreprise :</strong>
-                    <p style="color: #8892B0; margin-top: 0.5rem; line-height: 1.6;">
+                <div style="background: #F8FAFC; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                    <strong style="color: #0A192F;">💼 Impact entreprise :</strong>
+                    <p style="color: #64748B; margin-top: 0.5rem; line-height: 1.6;">
                         Les entreprises doivent sensibiliser particulièrement les cadres et dirigeants, 
                         limiter l'exposition publique des informations sensibles et renforcer l'authentification multi-facteurs.
                     </p>
                 </div>
-                <a href="https://www.lemondeinformatique.fr" target="_blank" style="color: #64FFDA; text-decoration: none; font-weight: 500;">
+                <a href="https://www.lemondeinformatique.fr" target="_blank" style="color: #0EA5E9; text-decoration: none; font-weight: 500;">
                     🔗 Lire l'article complet →
                 </a>
             </div>
@@ -1982,86 +1982,86 @@
         </div>
 
         <!-- Articles Passkeys -->
-        <h3 style="color: #64FFDA; margin-bottom: 2rem; font-size: 1.6rem; display: flex; align-items: center; gap: 1rem;">
+        <h3 style="color: #0EA5E9; margin-bottom: 2rem; font-size: 1.6rem; display: flex; align-items: center; gap: 1rem;">
             🔐 Articles : Passkeys et authentification
         </h3>
 
         <div style="display: grid; gap: 2rem; margin-bottom: 4rem;">
             
             <!-- Article 1 -->
-            <div style="background: #112240; padding: 2rem; border-radius: 15px; border-left: 4px solid #64FFDA;">
+            <div style="background: #FFFFFF; padding: 2rem; border-radius: 15px; border-left: 4px solid #0EA5E9;">
                 <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                    <h4 style="color: #E6F1FF; font-size: 1.2rem; flex: 1;">Apple, Google et Microsoft accélèrent l'adoption des passkeys</h4>
-                    <span style="padding: 0.3rem 1rem; background: rgba(100, 255, 218, 0.15); border-radius: 15px; color: #64FFDA; font-size: 0.8rem;">2024</span>
+                    <h4 style="color: #0A192F; font-size: 1.2rem; flex: 1;">Apple, Google et Microsoft accélèrent l'adoption des passkeys</h4>
+                    <span style="padding: 0.3rem 1rem; background: rgba(14, 165, 233, 0.12); border-radius: 15px; color: #0EA5E9; font-size: 0.8rem;">2024</span>
                 </div>
-                <p style="color: #64FFDA; margin-bottom: 1rem; font-size: 0.9rem;">
+                <p style="color: #0EA5E9; margin-bottom: 1rem; font-size: 0.9rem;">
                     📰 Source : Tech industry news
                 </p>
-                <p style="color: #8892B0; line-height: 1.7; margin-bottom: 1rem;">
+                <p style="color: #64748B; line-height: 1.7; margin-bottom: 1rem;">
                     Les géants de la tech déploient massivement les passkeys sur leurs plateformes. 
                     Apple avec iOS 17, Google avec Android 14 et Microsoft avec Windows 11 intègrent nativement 
                     cette technologie FIDO2 pour éliminer progressivement les mots de passe.
                 </p>
-                <div style="background: #0A192F; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                    <strong style="color: #E6F1FF;">💼 Impact entreprise :</strong>
-                    <p style="color: #8892B0; margin-top: 0.5rem; line-height: 1.6;">
+                <div style="background: #F8FAFC; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                    <strong style="color: #0A192F;">💼 Impact entreprise :</strong>
+                    <p style="color: #64748B; margin-top: 0.5rem; line-height: 1.6;">
                         Les DSI peuvent désormais planifier une migration vers le passwordless, 
                         réduisant drastiquement les risques de phishing et les coûts liés à la gestion des mots de passe.
                     </p>
                 </div>
-                <a href="https://fidoalliance.org" target="_blank" style="color: #64FFDA; text-decoration: none; font-weight: 500;">
+                <a href="https://fidoalliance.org" target="_blank" style="color: #0EA5E9; text-decoration: none; font-weight: 500;">
                     🔗 Lire l'article complet →
                 </a>
             </div>
 
             <!-- Article 2 -->
-            <div style="background: #112240; padding: 2rem; border-radius: 15px; border-left: 4px solid #64FFDA;">
+            <div style="background: #FFFFFF; padding: 2rem; border-radius: 15px; border-left: 4px solid #0EA5E9;">
                 <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                    <h4 style="color: #E6F1FF; font-size: 1.2rem; flex: 1;">Les passkeys sont-elles vraiment résistantes au phishing ?</h4>
-                    <span style="padding: 0.3rem 1rem; background: rgba(100, 255, 218, 0.15); border-radius: 15px; color: #64FFDA; font-size: 0.8rem;">2025</span>
+                    <h4 style="color: #0A192F; font-size: 1.2rem; flex: 1;">Les passkeys sont-elles vraiment résistantes au phishing ?</h4>
+                    <span style="padding: 0.3rem 1rem; background: rgba(14, 165, 233, 0.12); border-radius: 15px; color: #0EA5E9; font-size: 0.8rem;">2025</span>
                 </div>
-                <p style="color: #64FFDA; margin-bottom: 1rem; font-size: 0.9rem;">
+                <p style="color: #0EA5E9; margin-bottom: 1rem; font-size: 0.9rem;">
                     📰 Source : Cybersecurity experts
                 </p>
-                <p style="color: #8892B0; line-height: 1.7; margin-bottom: 1rem;">
+                <p style="color: #64748B; line-height: 1.7; margin-bottom: 1rem;">
                     Contrairement aux mots de passe, les passkeys ne peuvent pas être volées par phishing 
                     car elles utilisent la cryptographie à clé publique. Même si un utilisateur est trompé, 
                     l'attaquant ne récupère aucune information réutilisable.
                 </p>
-                <div style="background: #0A192F; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                    <strong style="color: #E6F1FF;">💼 Impact entreprise :</strong>
-                    <p style="color: #8892B0; margin-top: 0.5rem; line-height: 1.6;">
+                <div style="background: #F8FAFC; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                    <strong style="color: #0A192F;">💼 Impact entreprise :</strong>
+                    <p style="color: #64748B; margin-top: 0.5rem; line-height: 1.6;">
                         Solution idéale pour sécuriser les accès sensibles et protéger contre le credential stuffing. 
                         Particulièrement recommandé pour les comptes à privilèges et les services critiques.
                     </p>
                 </div>
-                <a href="https://www.csoonline.com" target="_blank" style="color: #64FFDA; text-decoration: none; font-weight: 500;">
+                <a href="https://www.csoonline.com" target="_blank" style="color: #0EA5E9; text-decoration: none; font-weight: 500;">
                     🔗 Lire l'article complet →
                 </a>
             </div>
 
             <!-- Article 3 -->
-            <div style="background: #112240; padding: 2rem; border-radius: 15px; border-left: 4px solid #64FFDA;">
+            <div style="background: #FFFFFF; padding: 2rem; border-radius: 15px; border-left: 4px solid #0EA5E9;">
                 <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                    <h4 style="color: #E6F1FF; font-size: 1.2rem; flex: 1;">Comment migrer vers les passkeys en entreprise</h4>
-                    <span style="padding: 0.3rem 1rem; background: rgba(100, 255, 218, 0.15); border-radius: 15px; color: #64FFDA; font-size: 0.8rem;">2024</span>
+                    <h4 style="color: #0A192F; font-size: 1.2rem; flex: 1;">Comment migrer vers les passkeys en entreprise</h4>
+                    <span style="padding: 0.3rem 1rem; background: rgba(14, 165, 233, 0.12); border-radius: 15px; color: #0EA5E9; font-size: 0.8rem;">2024</span>
                 </div>
-                <p style="color: #64FFDA; margin-bottom: 1rem; font-size: 0.9rem;">
+                <p style="color: #0EA5E9; margin-bottom: 1rem; font-size: 0.9rem;">
                     📰 Source : IT Pro / Enterprise security
                 </p>
-                <p style="color: #8892B0; line-height: 1.7; margin-bottom: 1rem;">
+                <p style="color: #64748B; line-height: 1.7; margin-bottom: 1rem;">
                     Guide pratique pour les DSI : inventaire des systèmes compatibles FIDO2, formation des utilisateurs, 
                     déploiement progressif et gestion des exceptions. La migration doit être planifiée sur 12 à 18 mois 
                     pour garantir une adoption réussie.
                 </p>
-                <div style="background: #0A192F; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                    <strong style="color: #E6F1FF;">💼 Impact entreprise :</strong>
-                    <p style="color: #8892B0; margin-top: 0.5rem; line-height: 1.6;">
+                <div style="background: #F8FAFC; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                    <strong style="color: #0A192F;">💼 Impact entreprise :</strong>
+                    <p style="color: #64748B; margin-top: 0.5rem; line-height: 1.6;">
                         Réduction de 99% des attaques par phishing, diminution des coûts de support (reset de mots de passe), 
                         amélioration de l'expérience utilisateur et conformité renforcée aux normes de sécurité.
                     </p>
                 </div>
-                <a href="https://www.itpro.com" target="_blank" style="color: #64FFDA; text-decoration: none; font-weight: 500;">
+                <a href="https://www.itpro.com" target="_blank" style="color: #0EA5E9; text-decoration: none; font-weight: 500;">
                     🔗 Lire l'article complet →
                 </a>
             </div>
@@ -2069,31 +2069,31 @@
         </div>
 
         <!-- Méthodologie -->
-        <h3 style="color: #64FFDA; margin-bottom: 2rem; text-align: center; font-size: 1.8rem;">
+        <h3 style="color: #0EA5E9; margin-bottom: 2rem; text-align: center; font-size: 1.8rem;">
             🛠️ Ma Méthodologie de Veille
         </h3>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-            <div style="background: #112240; padding: 2rem; border-radius: 15px; border-left: 4px solid #64FFDA;">
+            <div style="background: #FFFFFF; padding: 2rem; border-radius: 15px; border-left: 4px solid #0EA5E9;">
                 <div style="font-size: 2rem; margin-bottom: 1rem;">🔍</div>
-                <h4 style="color: #E6F1FF; margin-bottom: 1rem;">1. Recherche (Seek)</h4>
-                <p style="color: #8892B0; line-height: 1.7;">
+                <h4 style="color: #0A192F; margin-bottom: 1rem;">1. Recherche (Seek)</h4>
+                <p style="color: #64748B; line-height: 1.7;">
                     Consultation quotidienne de sources spécialisées : ANSSI, CERT-FR, ZDNet, blogs cybersécurité, 
                     forums et réseaux sociaux professionnels.
                 </p>
             </div>
-            <div style="background: #112240; padding: 2rem; border-radius: 15px; border-left: 4px solid #64FFDA;">
+            <div style="background: #FFFFFF; padding: 2rem; border-radius: 15px; border-left: 4px solid #0EA5E9;">
                 <div style="font-size: 2rem; margin-bottom: 1rem;">📊</div>
-                <h4 style="color: #E6F1FF; margin-bottom: 1rem;">2. Analyse (Sense)</h4>
-                <p style="color: #8892B0; line-height: 1.7;">
+                <h4 style="color: #0A192F; margin-bottom: 1rem;">2. Analyse (Sense)</h4>
+                <p style="color: #64748B; line-height: 1.7;">
                     Sélection des articles pertinents, réalisation de synthèses et analyse de l'impact 
                     potentiel sur les organisations.
                 </p>
             </div>
-            <div style="background: #112240; padding: 2rem; border-radius: 15px; border-left: 4px solid #8892B0;">
+            <div style="background: #FFFFFF; padding: 2rem; border-radius: 15px; border-left: 4px solid #64748B;">
                 <div style="font-size: 2rem; margin-bottom: 1rem;">📤</div>
-                <h4 style="color: #E6F1FF; margin-bottom: 1rem;">3. Partage (Share)</h4>
-                <p style="color: #8892B0; line-height: 1.7;">
+                <h4 style="color: #0A192F; margin-bottom: 1rem;">3. Partage (Share)</h4>
+                <p style="color: #64748B; line-height: 1.7;">
                     Documentation dans mon portfolio, partage avec mes pairs et présentation 
                     lors des évaluations de compétences.
                 </p>
@@ -2101,20 +2101,20 @@
         </div>
 
         <!-- Sources -->
-        <div style="background: #112240; padding: 2.5rem; border-radius: 20px;">
-            <h4 style="color: #64FFDA; margin-bottom: 1.5rem; text-align: center; font-size: 1.3rem;">
+        <div style="background: #FFFFFF; padding: 2.5rem; border-radius: 20px;">
+            <h4 style="color: #0EA5E9; margin-bottom: 1.5rem; text-align: center; font-size: 1.3rem;">
                 📚 Mes Sources de Veille
             </h4>
             <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-                <span style="padding: 0.6rem 1.2rem; background: #0A192F; border-radius: 20px; color: #8892B0; border: 1px solid rgba(255, 255, 255, 0.2);">ANSSI</span>
-                <span style="padding: 0.6rem 1.2rem; background: #0A192F; border-radius: 20px; color: #8892B0; border: 1px solid rgba(255, 255, 255, 0.2);">CERT-FR</span>
-                <span style="padding: 0.6rem 1.2rem; background: #0A192F; border-radius: 20px; color: #8892B0; border: 1px solid rgba(255, 255, 255, 0.2);">ZDNet</span>
-                <span style="padding: 0.6rem 1.2rem; background: #0A192F; border-radius: 20px; color: #8892B0; border: 1px solid rgba(255, 255, 255, 0.2);">Le Monde Informatique</span>
-                <span style="padding: 0.6rem 1.2rem; background: #0A192F; border-radius: 20px; color: #8892B0; border: 1px solid rgba(255, 255, 255, 0.2);">Bleeping Computer</span>
-                <span style="padding: 0.6rem 1.2rem; background: #0A192F; border-radius: 20px; color: #8892B0; border: 1px solid rgba(255, 255, 255, 0.2);">FIDO Alliance</span>
-                <span style="padding: 0.6rem 1.2rem; background: #0A192F; border-radius: 20px; color: #8892B0; border: 1px solid rgba(255, 255, 255, 0.2);">LinkedIn</span>
-                <span style="padding: 0.6rem 1.2rem; background: #0A192F; border-radius: 20px; color: #8892B0; border: 1px solid rgba(255, 255, 255, 0.2);">Google Alerts</span>
-                <span style="padding: 0.6rem 1.2rem; background: #0A192F; border-radius: 20px; color: #8892B0; border: 1px solid rgba(255, 255, 255, 0.2);">Feedly</span>
+                <span style="padding: 0.6rem 1.2rem; background: #F8FAFC; border-radius: 20px; color: #64748B; border: 1px solid rgba(0, 0, 0, 0.1);">ANSSI</span>
+                <span style="padding: 0.6rem 1.2rem; background: #F8FAFC; border-radius: 20px; color: #64748B; border: 1px solid rgba(0, 0, 0, 0.1);">CERT-FR</span>
+                <span style="padding: 0.6rem 1.2rem; background: #F8FAFC; border-radius: 20px; color: #64748B; border: 1px solid rgba(0, 0, 0, 0.1);">ZDNet</span>
+                <span style="padding: 0.6rem 1.2rem; background: #F8FAFC; border-radius: 20px; color: #64748B; border: 1px solid rgba(0, 0, 0, 0.1);">Le Monde Informatique</span>
+                <span style="padding: 0.6rem 1.2rem; background: #F8FAFC; border-radius: 20px; color: #64748B; border: 1px solid rgba(0, 0, 0, 0.1);">Bleeping Computer</span>
+                <span style="padding: 0.6rem 1.2rem; background: #F8FAFC; border-radius: 20px; color: #64748B; border: 1px solid rgba(0, 0, 0, 0.1);">FIDO Alliance</span>
+                <span style="padding: 0.6rem 1.2rem; background: #F8FAFC; border-radius: 20px; color: #64748B; border: 1px solid rgba(0, 0, 0, 0.1);">LinkedIn</span>
+                <span style="padding: 0.6rem 1.2rem; background: #F8FAFC; border-radius: 20px; color: #64748B; border: 1px solid rgba(0, 0, 0, 0.1);">Google Alerts</span>
+                <span style="padding: 0.6rem 1.2rem; background: #F8FAFC; border-radius: 20px; color: #64748B; border: 1px solid rgba(0, 0, 0, 0.1);">Feedly</span>
             </div>
         </div>
 
