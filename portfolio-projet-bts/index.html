@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abraham Emmanuel — BTS SIO SISR 2026 | Clinique Pasteur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --b900:#1e3a8a;--b800:#1e40af;--b700:#1d4ed8;--b600:#2563eb;--b500:#3b82f6;
+  --b200:#bfdbfe;--b100:#dbeafe;--b50:#eff6ff;
+  --s900:#0f172a;--s800:#1e293b;--s700:#334155;--s600:#475569;
+  --s400:#94a3b8;--s300:#cbd5e1;--s200:#e2e8f0;--s100:#f1f5f9;--s50:#f8fafc;
+  --hh:64px;--th:48px;--sw:272px;
+  --fm:'Outfit',sans-serif;--fc:'JetBrains Mono',monospace
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fm);background:var(--s50);color:var(--s800);line-height:1.6}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;height:var(--hh);
+  background:linear-gradient(135deg,var(--b900) 0%,var(--b700) 100%);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 24px;z-index:1000;box-shadow:0 2px 16px rgba(30,58,138,.35)}
+.h-left{display:flex;align-items:center;gap:16px}
+.h-name{font-size:1.05rem;font-weight:700;color:#fff;letter-spacing:.02em}
+.h-sub{font-size:.75rem;color:var(--b200);font-weight:400;margin-top:1px}
+.badge-clinic{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  color:#fff;padding:4px 14px;border-radius:20px;font-size:.78rem;font-weight:500;
+  letter-spacing:.05em;white-space:nowrap}
+.menu-btn{display:none;align-items:center;gap:6px;padding:6px 14px;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  border-radius:6px;color:#fff;font-family:var(--fm);font-size:.82rem;cursor:pointer}
+
+/* TABS */
+.tab-nav{position:fixed;top:var(--hh);left:0;right:0;height:var(--th);
+  background:#fff;border-bottom:1px solid var(--s200);display:flex;
+  align-items:center;padding:0 20px;gap:4px;z-index:900;
+  box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.tab-btn{padding:6px 18px;border:none;background:transparent;font-family:var(--fm);
+  font-size:.875rem;font-weight:500;color:var(--s600);cursor:pointer;border-radius:6px;
+  transition:all .2s;white-space:nowrap}
+.tab-btn.active{color:var(--b600);background:var(--b50)}
+.tab-btn:hover:not(.active){background:var(--s100);color:var(--s800)}
+
+/* LAYOUT */
+.layout{display:flex;margin-top:calc(var(--hh) + var(--th));
+  min-height:calc(100vh - var(--hh) - var(--th))}
+
+/* SIDEBAR */
+.sidebar{width:var(--sw);min-width:var(--sw);background:#fff;
+  border-right:1px solid var(--s200);position:sticky;
+  top:calc(var(--hh) + var(--th));height:calc(100vh - var(--hh) - var(--th));
+  overflow-y:auto;padding:12px 0}
+.sb-title{font-size:.68rem;font-weight:700;color:var(--s400);letter-spacing:.12em;
+  text-transform:uppercase;padding:6px 18px 10px}
+.nav-item{display:flex;align-items:flex-start;gap:8px;padding:8px 18px;
+  cursor:pointer;transition:all .15s;border-left:3px solid transparent;
+  font-size:.835rem;color:var(--s600);line-height:1.4}
+.nav-item:hover{background:var(--b50);color:var(--b700)}
+.nav-item.active{background:var(--b50);color:var(--b700);
+  border-left-color:var(--b600);font-weight:600}
+.nav-num{font-size:.7rem;color:var(--s400);font-family:var(--fc);
+  min-width:18px;margin-top:2px;flex-shrink:0}
+.nav-item.active .nav-num{color:var(--b500)}
+.nav-status{flex-shrink:0;margin-top:1px;font-size:.8rem;margin-left:auto}
+
+/* CONTENT */
+.content{flex:1;padding:36px 44px;max-width:920px}
+
+/* SECTION */
+.section-content{display:none}
+.section-content.visible{display:block}
+.sec-header{margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid var(--s200)}
+.sec-title{font-size:1.55rem;font-weight:700;color:var(--s900);margin-bottom:10px;line-height:1.3}
+.sec-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;
+  border-radius:20px;font-size:.75rem;font-weight:600}
+.b-done{background:#dcfce7;color:#166534}
+.b-wip{background:#fef9c3;color:#854d0e}
+.b-todo{background:var(--s100);color:var(--s600)}
+.b-info{background:var(--b100);color:var(--b900)}
+.b-vm{background:#f3e8ff;color:#6b21a8}
+
+h2.s{font-size:1.05rem;font-weight:700;color:var(--s800);margin:28px 0 10px;
+  display:flex;align-items:center;gap:8px}
+h2.s::before{content:'';display:block;width:3px;height:18px;
+  background:var(--b600);border-radius:2px;flex-shrink:0}
+h3.s{font-size:.9rem;font-weight:600;color:var(--s700);margin:18px 0 6px}
+p{margin-bottom:12px;color:var(--s700);font-size:.92rem}
+ul,ol{margin:8px 0 14px 20px;color:var(--s700);font-size:.92rem}
+li{margin-bottom:4px}
+
+/* CODE */
+pre{background:var(--s900);border-radius:8px;padding:18px 20px;margin:12px 0;
+  overflow-x:auto;position:relative;border:1px solid #1e2d40}
+pre code{font-family:var(--fc);font-size:.8rem;line-height:1.75;color:#e2e8f0;
+  background:none;padding:0}
+.pre-lang{position:absolute;top:8px;right:12px;font-family:var(--fc);
+  font-size:.65rem;color:var(--s400);text-transform:uppercase;letter-spacing:.1em}
+code{font-family:var(--fc);font-size:.83em;background:var(--s100);
+  padding:1px 6px;border-radius:4px;color:var(--b700)}
+.cm{color:#4a6785}.ck{color:#c084fc}.cs{color:#86efac}.cn{color:#fb923c}
+.cc{color:#93c5fd}.co{color:#f9a8d4}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.855rem}
+th{background:var(--b900);color:#fff;padding:9px 13px;text-align:left;
+  font-weight:500;font-size:.78rem;letter-spacing:.04em}
+td{padding:8px 13px;border-bottom:1px solid var(--s200);color:var(--s700);
+  vertical-align:top;line-height:1.5}
+tr:nth-child(even) td{background:var(--s50)}
+tr:hover td{background:var(--b50)}
+td code{font-size:.78rem}
+
+/* INFO BOXES */
+.box{border-radius:8px;padding:12px 16px;margin:14px 0;border-left:4px solid;
+  font-size:.88rem;line-height:1.5}
+.box-info{background:var(--b50);border-color:var(--b500);color:var(--b900)}
+.box-warn{background:#fefce8;border-color:#eab308;color:#713f12}
+.box-ok{background:#f0fdf4;border-color:#22c55e;color:#14532d}
+.box strong{font-weight:700}
+
+/* NETWORK DIAGRAM */
+.netdiag{background:var(--s900);border-radius:10px;padding:22px;margin:16px 0;
+  font-family:var(--fc);font-size:.78rem;color:#94a3b8;line-height:1.9;
+  overflow-x:auto;border:1px solid #1e2d40;white-space:pre}
+.nd-int{color:#fb923c}.nd-fw{color:#c084fc}.nd-dmz{color:#60a5fa}
+.nd-lan{color:#86efac}.nd-vpn{color:#f9a8d4}.nd-host{color:#fde68a}
+
+/* TASK COLORS */
+.ta{color:var(--b600);font-weight:600}
+.tb{color:#7c3aed;font-weight:600}
+
+/* SCROLLBAR */
+.sidebar::-webkit-scrollbar{width:4px}
+.sidebar::-webkit-scrollbar-track{background:transparent}
+.sidebar::-webkit-scrollbar-thumb{background:var(--s200);border-radius:2px}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .sidebar{display:none;width:100%;min-width:unset;position:static;
+    height:auto;border-right:none;border-bottom:1px solid var(--s200)}
+  .sidebar.open{display:block}
+  .layout{flex-direction:column}
+  .content{padding:20px 16px;max-width:100%}
+  .h-name{font-size:.9rem}
+  .menu-btn{display:flex}
+  .tab-btn{font-size:.78rem;padding:5px 10px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="h-left">
+    <div>
+      <div class="h-name">Abraham Emmanuel</div>
+      <div class="h-sub">BTS SIO SISR — Promotion 2026</div>
+    </div>
+    <span class="badge-clinic">🏥 Clinique Pasteur</span>
+  </div>
+  <button class="menu-btn" onclick="toggleSidebar()">☰ Menu</button>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" id="tab-p2" onclick="switchTab('p2',this)">📁 Projet 2 — Infrastructure réseau sécurisée</button>
+  <button class="tab-btn" id="tab-p3" onclick="switchTab('p3',this)">📁 Projet 3 — Haute disponibilité</button>
+</nav>
+
+<div class="layout">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div id="sb-p2">
+      <div class="sb-title">Projet 2 · Sections</div>
+      <div class="nav-item active" onclick="show('p2-1',this)"><span class="nav-num">01</span><span>Vue d'ensemble</span><span class="nav-status">✅</span></div>
+      <div class="nav-item" onclick="show('p2-2',this)"><span class="nav-num">02</span><span>Installation IIS</span><span class="nav-status">✅</span></div>
+      <div class="nav-item" onclick="show('p2-3',this)"><span class="nav-num">03</span><span>PHP + FastCGI</span><span class="nav-status">✅</span></div>
+      <div class="nav-item" onclick="show('p2-4',this)"><span class="nav-num">04</span><span>Déploiement questionnaire</span><span class="nav-status">✅</span></div>
+      <div class="nav-item" onclick="show('p2-5',this)"><span class="nav-num">05</span><span>Sécurisation HTTPS</span><span class="nav-status">✅</span></div>
+      <div class="nav-item" onclick="show('p2-6',this)"><span class="nav-num">06</span><span>Isolement DMZ</span><span class="nav-status">✅</span></div>
+      <div class="nav-item" onclick="show('p2-7',this)"><span class="nav-num">07</span><span>Sécurisation Debian</span><span class="nav-status">✅</span></div>
+      <div class="nav-item" onclick="show('p2-8',this)"><span class="nav-num">08</span><span>Flux Stormshield</span><span class="nav-status">✅</span></div>
+      <div class="nav-item" onclick="show('p2-9',this)"><span class="nav-num">09</span><span>VPN SSL</span><span class="nav-status">⚠️</span></div>
+      <div class="nav-item" onclick="show('p2-10',this)"><span class="nav-num">10</span><span>Supervision Nagios</span><span class="nav-status">✅</span></div>
+    </div>
+    <div id="sb-p3" style="display:none">
+      <div class="sb-title">Projet 3 · Sections</div>
+      <div class="nav-item active" onclick="show('p3-1',this)"><span class="nav-num">01</span><span>Vue d'ensemble</span><span class="nav-status">🔲</span></div>
+      <div class="nav-item" onclick="show('p3-2',this)"><span class="nav-num">02</span><span>Schéma réseau</span><span class="nav-status">🔲</span></div>
+      <div class="nav-item" onclick="show('p3-3',this)"><span class="nav-num">03</span><span>Nginx reverse proxy</span><span class="nav-status">🔲</span></div>
+      <div class="nav-item" onclick="show('p3-4',this)"><span class="nav-num">04</span><span>Serveurs Node.js</span><span class="nav-status">🔲</span></div>
+      <div class="nav-item" onclick="show('p3-5',this)"><span class="nav-num">05</span><span>Gestion PM2</span><span class="nav-status">🔲</span></div>
+      <div class="nav-item" onclick="show('p3-6',this)"><span class="nav-num">06</span><span>HTTPS sur Nginx</span><span class="nav-status">🔲</span></div>
+      <div class="nav-item" onclick="show('p3-7',this)"><span class="nav-num">07</span><span>Règles Stormshield</span><span class="nav-status">🔲</span></div>
+      <div class="nav-item" onclick="show('p3-8',this)"><span class="nav-num">08</span><span>Accès distant Ngrok</span><span class="nav-status">🔲</span></div>
+      <div class="nav-item" onclick="show('p3-9',this)"><span class="nav-num">09</span><span>Supervision Nagios</span><span class="nav-status">🔲</span></div>
+      <div class="nav-item" onclick="show('p3-10',this)"><span class="nav-num">10</span><span>Tests de tolérance</span><span class="nav-status">🔲</span></div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="content">
+
+    <!-- ══════════ PROJET 2 ══════════ -->
+
+    <!-- P2-S1 -->
+    <div id="p2-1" class="section-content visible">
+      <div class="sec-header">
+        <div class="sec-title">Vue d'ensemble — Projet 2</div>
+        <div class="sec-meta">
+          <span class="badge b-info">🏥 Clinique Pasteur</span>
+          <span class="badge b-done">✅ Infrastructure déployée</span>
+          <span class="badge b-vm">BTS SIO SISR 2026</span>
+        </div>
+      </div>
+      <h2 class="s">Contexte</h2>
+      <p>La Clinique Pasteur souhaite moderniser son infrastructure réseau afin de sécuriser les échanges de données médicales et permettre un accès distant sécurisé aux médecins. Le projet couvre la mise en place d'un serveur web en DMZ, la sécurisation des flux par pare-feu Stormshield, le durcissement des serveurs et la mise en place d'un tunnel VPN SSL.</p>
+      <div class="box box-info"><strong>Périmètre :</strong> Serveur web IIS en DMZ, base de données MySQL isolée, pare-feu Stormshield, accès VPN SSL pour les médecins distants.</div>
+      <h2 class="s">Architecture réseau</h2>
+      <div class="netdiag"><span class="nd-int">[ INTERNET ]</span>
+        |
+        | WAN
+        |
+<span class="nd-fw">[ Stormshield SNS ]</span>  10.0.11.254 (DMZ) · 10.0.1.254 (LAN) · 10.0.20.254 (VPN)
+  _____|___________
+ |                 |
+ | eth0 (LAN)     | eth1 (DMZ)
+ |                 |
+<span class="nd-lan">[ LAN — 10.0.1.0/24 ]</span>     <span class="nd-dmz">[ DMZ — 10.0.11.0/24 ]</span>
+ ├─ Postes clients           ├─ <span class="nd-host">SRV-WEB-DMZ  10.0.11.22</span>  (VM 112, IIS)
+ └─ Admin réseau             └─ <span class="nd-host">server-bdd   10.0.11.10</span>  (VM 107, MySQL)
+
+<span class="nd-vpn">[ VPN — 10.0.20.0/24 ]</span>
+ └─ Médecins distants (OpenVPN)  →  portail https://10.0.11.254</div>
+      <h2 class="s">Plages IP</h2>
+      <table>
+        <tr><th>Zone</th><th>Réseau</th><th>Masque</th><th>Passerelle</th><th>Rôle</th></tr>
+        <tr><td>LAN</td><td><code>10.0.1.0</code></td><td>/24</td><td>10.0.1.254</td><td>Réseau interne — postes &amp; administration</td></tr>
+        <tr><td>DMZ</td><td><code>10.0.11.0</code></td><td>/24</td><td>10.0.11.254</td><td>Zone démilitarisée — services exposés</td></tr>
+        <tr><td>VPN</td><td><code>10.0.20.0</code></td><td>/24</td><td>10.0.20.254</td><td>Tunnel SSL — médecins distants</td></tr>
+      </table>
+      <h2 class="s">Inventaire des VMs</h2>
+      <table>
+        <tr><th>VM</th><th>Nom</th><th>OS</th><th>IP</th><th>Rôle</th><th>Zone</th></tr>
+        <tr><td>112</td><td>SRV-WEB-DMZ</td><td>Windows Server 2019</td><td><code>10.0.11.22</code></td><td>IIS + PHP + Questionnaire médical</td><td>DMZ</td></tr>
+        <tr><td>107</td><td>server-bdd</td><td>Debian 11</td><td><code>10.0.11.10</code></td><td>Base de données MySQL</td><td>DMZ</td></tr>
+        <tr><td>—</td><td>Stormshield SNS</td><td>SNS OS</td><td><code>10.0.11.254</code></td><td>Pare-feu / VPN SSL / portail OpenVPN</td><td>Périmètre</td></tr>
+      </table>
+    </div>
+
+    <!-- P2-S2 -->
+    <div id="p2-2" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Installation IIS</div>
+        <div class="sec-meta">
+          <span class="badge b-vm">VM 112 — 10.0.11.22</span>
+          <span class="badge b-info">Windows Server 2019</span>
+          <span class="badge b-done">✅ Terminé</span>
+        </div>
+      </div>
+      <p>Le serveur web IIS est installé sur la VM 112 (<code>10.0.11.22</code>) en DMZ. Il héberge le questionnaire médical PHP accessible depuis le LAN et le VPN.</p>
+      <h2 class="s">Installation via PowerShell</h2>
+      <pre><span class="pre-lang">PowerShell</span><code><span class="cm"># Installer IIS avec les outils de gestion</span>
+<span class="cc">Install-WindowsFeature</span> -Name Web-Server -IncludeManagementTools
+
+<span class="cm"># Ajouter le module CGI (nécessaire pour FastCGI / PHP)</span>
+<span class="cc">Install-WindowsFeature</span> -Name Web-CGI
+
+<span class="cm"># Vérifier les rôles installés</span>
+<span class="cc">Get-WindowsFeature</span> | <span class="ck">Where-Object</span> {<span class="cs">$_</span>.InstallState -eq <span class="cs">"Installed"</span>} `
+  | <span class="cc">Select-Object</span> Name, DisplayName</code></pre>
+      <h2 class="s">Vérification du service</h2>
+      <pre><span class="pre-lang">PowerShell</span><code><span class="cm"># Vérifier que W3SVC est démarré</span>
+<span class="cc">Get-Service</span> -Name W3SVC
+
+<span class="cm"># Démarrage automatique</span>
+<span class="cc">Set-Service</span> -Name W3SVC -StartupType Automatic
+<span class="cc">Start-Service</span> -Name W3SVC</code></pre>
+      <h2 class="s">Configuration réseau</h2>
+      <table>
+        <tr><th>Paramètre</th><th>Valeur</th></tr>
+        <tr><td>Adresse IP</td><td><code>10.0.11.22</code></td></tr>
+        <tr><td>Masque</td><td><code>255.255.255.0</code></td></tr>
+        <tr><td>Passerelle</td><td><code>10.0.11.254</code> (Stormshield)</td></tr>
+        <tr><td>Port HTTP</td><td>80 → redirection HTTPS</td></tr>
+        <tr><td>Port HTTPS</td><td>443</td></tr>
+        <tr><td>Racine IIS</td><td><code>C:\inetpub\wwwroot</code></td></tr>
+      </table>
+      <div class="box box-ok"><strong>Résultat :</strong> IIS répond sur http://10.0.11.22 — page d'accueil IIS affichée depuis le LAN.</div>
+    </div>
+
+    <!-- P2-S3 -->
+    <div id="p2-3" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Installation PHP + FastCGI</div>
+        <div class="sec-meta">
+          <span class="badge b-vm">VM 112 — SRV-WEB-DMZ</span>
+          <span class="badge b-done">✅ Terminé</span>
+        </div>
+      </div>
+      <p>PHP est installé en mode <strong>Non Thread Safe (NTS)</strong> via le module FastCGI d'IIS. IIS délègue le traitement des fichiers <code>.php</code> au processus <code>php-cgi.exe</code>.</p>
+      <h2 class="s">Installation PHP NTS</h2>
+      <pre><span class="pre-lang">PowerShell</span><code><span class="cm"># 1. Télécharger PHP 8.2 NTS x64 depuis windows.php.net</span>
+<span class="cm">#    Extraire l'archive dans C:\PHP</span>
+
+<span class="cm"># 2. Copier le fichier de configuration</span>
+<span class="cc">Copy-Item</span> <span class="cs">"C:\PHP\php.ini-production"</span> <span class="cs">"C:\PHP\php.ini"</span>
+
+<span class="cm"># 3. Décommenter dans php.ini :</span>
+<span class="cm">#    extension=mysqli</span>
+<span class="cm">#    extension=pdo_mysql</span>
+<span class="cm">#    extension=openssl</span>
+<span class="cm">#    extension_dir = "C:\PHP\ext"</span>
+<span class="cm">#    date.timezone = "Europe/Paris"</span>
+
+<span class="cm"># 4. Ajouter C:\PHP au PATH système</span>
+[<span class="ck">Environment</span>]::SetEnvironmentVariable(<span class="cs">"PATH"</span>, <span class="cs">"$env:PATH;C:\PHP"</span>, <span class="cs">"Machine"</span>)</code></pre>
+      <h2 class="s">Configuration FastCGI dans IIS</h2>
+      <pre><span class="pre-lang">PowerShell</span><code><span class="ck">Import-Module</span> WebAdministration
+
+<span class="cm"># Enregistrer PHP comme application FastCGI</span>
+<span class="cc">Add-WebConfiguration</span> //system.webServer/fastCgi -PSPath <span class="cs">'IIS:\'</span> `
+  -Value @{fullPath=<span class="cs">'C:\PHP\php-cgi.exe'</span>}
+
+<span class="cm"># Handler mapping pour les fichiers .php</span>
+<span class="cs">$handler</span> = @{
+  name           = <span class="cs">'PHP_via_FastCGI'</span>
+  path           = <span class="cs">'*.php'</span>
+  verb           = <span class="cs">'*'</span>
+  modules        = <span class="cs">'FastCgiModule'</span>
+  scriptProcessor= <span class="cs">'C:\PHP\php-cgi.exe'</span>
+  resourceType   = <span class="cs">'Unspecified'</span>
+}
+<span class="cc">Add-WebConfigurationProperty</span> //system.webServer/handlers `
+  -PSPath <span class="cs">'IIS:\Sites\Default Web Site'</span> -Name . -Value <span class="cs">$handler</span></code></pre>
+      <h2 class="s">Test</h2>
+      <pre><span class="pre-lang">PHP</span><code><span class="cm">&lt;?php</span>
+<span class="cm">// Créer C:\inetpub\wwwroot\info.php — supprimer après validation</span>
+<span class="cc">phpinfo</span>();
+<span class="cm">?&gt;</span></code></pre>
+      <div class="box box-warn"><strong>Sécurité :</strong> Supprimer <code>info.php</code> après validation — ce fichier expose la configuration du serveur.</div>
+    </div>
+
+    <!-- P2-S4 -->
+    <div id="p2-4" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Déploiement — Questionnaire médical</div>
+        <div class="sec-meta">
+          <span class="badge b-vm">VM 112 — SRV-WEB-DMZ</span>
+          <span class="badge b-done">✅ Terminé</span>
+        </div>
+      </div>
+      <p>L'application PHP de questionnaire médical permet aux patients de renseigner leurs informations avant consultation. Les données sont stockées dans MySQL sur <code>server-bdd</code> (10.0.11.10).</p>
+      <h2 class="s">Structure des fichiers</h2>
+      <pre><span class="pre-lang">Arborescence</span><code>C:\inetpub\wwwroot\
+├── index.php          <span class="cm"># Formulaire patient</span>
+├── submit.php         <span class="cm"># Traitement POST</span>
+├── db_connect.php     <span class="cm"># Connexion MySQL (non exposé)</span>
+├── assets\
+│   ├── style.css
+│   └── logo-clinique.png
+└── web.config         <span class="cm"># Redirection HTTP→HTTPS</span></code></pre>
+      <h2 class="s">Connexion à la base de données</h2>
+      <pre><span class="pre-lang">PHP</span><code><span class="cm">&lt;?php</span>
+<span class="cs">$host</span> = <span class="cs">'10.0.11.10'</span>;   <span class="cm">// server-bdd en DMZ</span>
+<span class="cs">$db</span>   = <span class="cs">'clinique_db'</span>;
+<span class="cs">$user</span> = <span class="cs">'app_user'</span>;
+<span class="cs">$pass</span> = <span class="cs">'****'</span>;
+
+<span class="cs">$pdo</span> = <span class="ck">new</span> <span class="cc">PDO</span>(<span class="cs">"mysql:host=$host;dbname=$db;charset=utf8"</span>, <span class="cs">$user</span>, <span class="cs">$pass</span>, [
+  PDO::ATTR_ERRMODE =&gt; PDO::ERRMODE_EXCEPTION,
+  PDO::ATTR_DEFAULT_FETCH_MODE =&gt; PDO::FETCH_ASSOC
+]);
+<span class="cm">?&gt;</span></code></pre>
+      <h2 class="s">web.config — Redirection HTTPS</h2>
+      <pre><span class="pre-lang">XML</span><code><span class="ck">&lt;configuration&gt;</span>
+  <span class="ck">&lt;system.webServer&gt;</span>
+    <span class="ck">&lt;defaultDocument&gt;</span>
+      <span class="ck">&lt;files&gt;&lt;add</span> <span class="cn">value</span>=<span class="cs">"index.php"</span> /<span class="ck">&gt;&lt;/files&gt;</span>
+    <span class="ck">&lt;/defaultDocument&gt;</span>
+    <span class="ck">&lt;rewrite&gt;&lt;rules&gt;</span>
+      <span class="ck">&lt;rule</span> <span class="cn">name</span>=<span class="cs">"HTTPS"</span> <span class="cn">stopProcessing</span>=<span class="cs">"true"</span><span class="ck">&gt;</span>
+        <span class="ck">&lt;match</span> <span class="cn">url</span>=<span class="cs">"(.*)"</span> /<span class="ck">&gt;</span>
+        <span class="ck">&lt;conditions&gt;&lt;add</span> <span class="cn">input</span>=<span class="cs">"{HTTPS}"</span> <span class="cn">pattern</span>=<span class="cs">"off"</span> /<span class="ck">&gt;&lt;/conditions&gt;</span>
+        <span class="ck">&lt;action</span> <span class="cn">type</span>=<span class="cs">"Redirect"</span> <span class="cn">url</span>=<span class="cs">"https://{HTTP_HOST}/{R:1}"</span> /<span class="ck">&gt;</span>
+      <span class="ck">&lt;/rule&gt;</span>
+    <span class="ck">&lt;/rules&gt;&lt;/rewrite&gt;</span>
+  <span class="ck">&lt;/system.webServer&gt;</span>
+<span class="ck">&lt;/configuration&gt;</span></code></pre>
+      <div class="box box-ok"><strong>Résultat :</strong> L'application répond sur https://10.0.11.22. Les données du formulaire sont enregistrées dans MySQL sur 10.0.11.10:3306.</div>
+    </div>
+
+    <!-- P2-S5 -->
+    <div id="p2-5" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Sécurisation HTTPS — Certificat auto-signé</div>
+        <div class="sec-meta">
+          <span class="badge b-vm">VM 112 — SRV-WEB-DMZ</span>
+          <span class="badge b-done">✅ Terminé</span>
+        </div>
+      </div>
+      <p>Un certificat auto-signé est généré via PowerShell et lié au site IIS sur le port 443. Il garantit le chiffrement des échanges entre les postes du LAN et le serveur web.</p>
+      <h2 class="s">Génération du certificat</h2>
+      <pre><span class="pre-lang">PowerShell</span><code><span class="cm"># Générer un certificat auto-signé valide 2 ans</span>
+<span class="cs">$cert</span> = <span class="cc">New-SelfSignedCertificate</span> `
+  -DnsName <span class="cs">"clinique-pasteur.local"</span>, <span class="cs">"10.0.11.22"</span> `
+  -CertStoreLocation <span class="cs">"cert:\LocalMachine\My"</span> `
+  -NotAfter (<span class="cc">Get-Date</span>).AddYears(<span class="cn">2</span>) `
+  -KeyUsage DigitalSignature, KeyEncipherment `
+  -FriendlyName <span class="cs">"Clinique Pasteur HTTPS"</span>
+
+<span class="cc">Write-Host</span> <span class="cs">"Thumbprint : $($cert.Thumbprint)"</span></code></pre>
+      <h2 class="s">Liaison HTTPS sur IIS</h2>
+      <pre><span class="pre-lang">PowerShell</span><code><span class="ck">Import-Module</span> WebAdministration
+
+<span class="cm"># Créer le binding HTTPS sur le port 443</span>
+<span class="cc">New-WebBinding</span> -Name <span class="cs">"Default Web Site"</span> `
+  -Protocol <span class="cs">"https"</span> -Port <span class="cn">443</span> -IPAddress <span class="cs">"*"</span>
+
+<span class="cm"># Associer le certificat</span>
+<span class="cs">$binding</span> = <span class="cc">Get-WebBinding</span> -Name <span class="cs">"Default Web Site"</span> -Protocol <span class="cs">"https"</span>
+<span class="cs">$binding</span>.AddSslCertificate(<span class="cs">$cert</span>.Thumbprint, <span class="cs">"My"</span>)
+
+<span class="cm"># Vérification</span>
+<span class="cc">netsh</span> http show sslcert ipport=0.0.0.0:443</code></pre>
+      <div class="box box-warn"><strong>Note :</strong> Les navigateurs affichent un avertissement pour les certificats auto-signés. En production, utiliser une CA interne (AD CS) ou un certificat public.</div>
+    </div>
+
+    <!-- P2-S6 -->
+    <div id="p2-6" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Isolement DMZ — Règle Stormshield n°13</div>
+        <div class="sec-meta">
+          <span class="badge b-info">Stormshield SNS</span>
+          <span class="badge b-done">✅ Terminé</span>
+        </div>
+      </div>
+      <p>La règle n°13 bloque tout trafic initié depuis <code>SRV-WEB-DMZ</code> vers le LAN, empêchant qu'une compromission du serveur web serve de pivot pour attaquer le réseau interne.</p>
+      <h2 class="s">Règle n°13 — Détail</h2>
+      <table>
+        <tr><th>Champ</th><th>Valeur</th></tr>
+        <tr><td>N° règle</td><td><strong>13</strong></td></tr>
+        <tr><td>Action</td><td>🔴 <strong>BLOCK</strong></td></tr>
+        <tr><td>Source</td><td><code>SRV-WEB-DMZ</code> (10.0.11.22)</td></tr>
+        <tr><td>Destination</td><td><code>LAN_Network</code> (10.0.1.0/24)</td></tr>
+        <tr><td>Service</td><td>Any</td></tr>
+        <tr><td>Log</td><td>Activé</td></tr>
+        <tr><td>Commentaire</td><td>Isolation DMZ → LAN — prévention pivot</td></tr>
+      </table>
+      <h2 class="s">Flux</h2>
+      <div class="netdiag"><span class="nd-lan">LAN</span> ──HTTPS/443──→ <span class="nd-dmz">SRV-WEB-DMZ</span>   ✅ Autorisé (règle 3)
+<span class="nd-dmz">SRV-WEB-DMZ</span> ──ANY──→ <span class="nd-lan">LAN</span>           ❌ BLOQUÉ (règle 13)
+<span class="nd-dmz">server-bdd</span>  ──ANY──→ <span class="nd-lan">LAN</span>           ❌ BLOQUÉ (règle 14)</div>
+      <div class="box box-ok"><strong>Validation :</strong> <code>ping 10.0.1.1</code> depuis SRV-WEB-DMZ → timeout. Les logs Stormshield confirment les paquets bloqués.</div>
+    </div>
+
+    <!-- P2-S7 -->
+    <div id="p2-7" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Sécurisation Debian — server-bdd</div>
+        <div class="sec-meta">
+          <span class="badge b-vm">VM 107 — 10.0.11.10</span>
+          <span class="badge b-info">Debian 11</span>
+          <span class="badge b-done">✅ Terminé</span>
+        </div>
+      </div>
+      <p>Le serveur de base de données Debian (VM 107) est durci : mise à jour système, désactivation d'Apache2, pare-feu UFW, SSH restrictif et fail2ban.</p>
+      <h2 class="s">1. Mise à jour</h2>
+      <pre><span class="pre-lang">Bash</span><code>sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y</code></pre>
+      <h2 class="s">2. Désactivation Apache2</h2>
+      <pre><span class="pre-lang">Bash</span><code>sudo systemctl stop apache2
+sudo systemctl disable apache2
+<span class="cm"># Vérification → inactive (dead)</span>
+sudo systemctl status apache2</code></pre>
+      <h2 class="s">3. Configuration UFW</h2>
+      <pre><span class="pre-lang">Bash</span><code>sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+<span class="cm"># SSH uniquement depuis le LAN</span>
+sudo ufw allow from 10.0.1.0/24 to any port 22 proto tcp
+
+<span class="cm"># MySQL uniquement depuis SRV-WEB-DMZ</span>
+sudo ufw allow from 10.0.11.22 to any port 3306 proto tcp
+
+sudo ufw --force enable
+sudo ufw status verbose</code></pre>
+      <h2 class="s">4. Durcissement SSH</h2>
+      <pre><span class="pre-lang">Bash</span><code><span class="cm"># /etc/ssh/sshd_config</span>
+PermitRootLogin no
+MaxAuthTries 3
+LoginGraceTime 30
+X11Forwarding no
+AllowUsers adminbdd
+
+sudo systemctl restart sshd</code></pre>
+      <h2 class="s">5. Fail2ban</h2>
+      <pre><span class="pre-lang">Bash</span><code>sudo apt install fail2ban -y
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+
+<span class="cm"># jail.local → [sshd]</span>
+<span class="cm"># enabled  = true</span>
+<span class="cm"># maxretry = 3</span>
+<span class="cm"># bantime  = 3600</span>
+<span class="cm"># findtime = 600</span>
+
+sudo systemctl enable --now fail2ban
+sudo fail2ban-client status sshd</code></pre>
+      <div class="box box-ok"><strong>Résultat :</strong> Ports ouverts : 22 (LAN seul) et 3306 (10.0.11.22 seul). Connexion root SSH impossible. Fail2ban actif.</div>
+    </div>
+
+    <!-- P2-S8 -->
+    <div id="p2-8" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Contrôle des flux — Règles Stormshield</div>
+        <div class="sec-meta">
+          <span class="badge b-info">Stormshield SNS</span>
+          <span class="badge b-done">✅ Terminé</span>
+        </div>
+      </div>
+      <p>Le Stormshield SNS contrôle l'intégralité des flux entre les zones LAN, DMZ et VPN. Politique par défaut : tout bloquer (règle implicite).</p>
+      <table>
+        <tr><th>N°</th><th>Action</th><th>Source</th><th>Destination</th><th>Service</th><th>Description</th></tr>
+        <tr><td><strong>1</strong></td><td>✅ ALLOW</td><td>LAN</td><td>Stormshield</td><td>DNS/53</td><td>Résolution DNS interne</td></tr>
+        <tr><td><strong>2</strong></td><td>✅ ALLOW</td><td>LAN</td><td>Internet</td><td>HTTP, HTTPS</td><td>Navigation web postes clients</td></tr>
+        <tr><td><strong>3</strong></td><td>✅ ALLOW</td><td>LAN</td><td>SRV-WEB-DMZ</td><td>HTTPS/443</td><td>Accès questionnaire médical</td></tr>
+        <tr><td><strong>4</strong></td><td>✅ ALLOW</td><td>SRV-WEB-DMZ</td><td>server-bdd</td><td>MySQL/3306</td><td>Web → base de données</td></tr>
+        <tr><td><strong>5</strong></td><td>✅ ALLOW</td><td>VPN (10.0.20.0/24)</td><td>SRV-WEB-DMZ</td><td>HTTPS/443</td><td>Médecins distants → questionnaire</td></tr>
+        <tr><td><strong>6</strong></td><td>✅ ALLOW</td><td>Internet</td><td>Stormshield</td><td>HTTPS/443</td><td>Portail OpenVPN entrant</td></tr>
+        <tr><td><strong>7</strong></td><td>✅ ALLOW</td><td>LAN</td><td>server-bdd</td><td>SSH/22</td><td>Administration BDD depuis LAN</td></tr>
+        <tr><td><strong>8</strong></td><td>✅ ALLOW</td><td>LAN</td><td>SRV-WEB-DMZ</td><td>RDP/3389</td><td>Administration Windows Server</td></tr>
+        <tr><td><strong>9</strong></td><td>✅ ALLOW</td><td>Nagios (10.0.1.10)</td><td>DMZ</td><td>ICMP, SNMP</td><td>Supervision hôtes DMZ</td></tr>
+        <tr><td><strong>10</strong></td><td>✅ ALLOW</td><td>DMZ</td><td>Internet</td><td>HTTP, HTTPS</td><td>Mises à jour apt / Windows</td></tr>
+        <tr><td><strong>11</strong></td><td>✅ ALLOW</td><td>VPN</td><td>LAN</td><td>Any</td><td>Médecins → réseau interne</td></tr>
+        <tr><td><strong>13</strong></td><td>🔴 BLOCK</td><td>SRV-WEB-DMZ</td><td>LAN</td><td>Any</td><td>⚠️ Isolation DMZ → LAN (pivot)</td></tr>
+        <tr><td><strong>14</strong></td><td>🔴 BLOCK</td><td>server-bdd</td><td>LAN</td><td>Any</td><td>Isolation BDD → LAN</td></tr>
+        <tr><td><strong>15</strong></td><td>🔴 BLOCK</td><td>Any</td><td>Any</td><td>Any</td><td>Règle implicite par défaut</td></tr>
+      </table>
+    </div>
+
+    <!-- P2-S9 -->
+    <div id="p2-9" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">VPN SSL — Accès distant médecins</div>
+        <div class="sec-meta">
+          <span class="badge b-info">Stormshield SNS</span>
+          <span class="badge b-vm">VPN 10.0.20.0/24</span>
+          <span class="badge b-wip">⚠️ Auth à valider</span>
+        </div>
+      </div>
+      <p>Tunnel VPN SSL configuré sur le Stormshield. Les médecins se connectent via le portail <code>https://10.0.11.254</code> avec l'utilisateur <code>medecin</code> et un certificat client <code>.p12</code>.</p>
+      <h2 class="s">Configuration</h2>
+      <table>
+        <tr><th>Paramètre</th><th>Valeur</th></tr>
+        <tr><td>Portail</td><td><code>https://10.0.11.254</code></td></tr>
+        <tr><td>Plage VPN</td><td><code>10.0.20.0/24</code></td></tr>
+        <tr><td>Protocole</td><td>OpenVPN SSL (TCP/443)</td></tr>
+        <tr><td>Utilisateur</td><td><code>medecin</code></td></tr>
+        <tr><td>Certificat client</td><td><code>medecin-vpn.p12</code> (PKCS#12)</td></tr>
+        <tr><td>Client</td><td>OpenVPN Connect v3</td></tr>
+      </table>
+      <h2 class="s">Profil OpenVPN (.ovpn)</h2>
+      <pre><span class="pre-lang">OpenVPN</span><code>client
+dev tun
+proto tcp
+remote 10.0.11.254 443
+nobind
+persist-key
+persist-tun
+cipher AES-256-GCM
+auth SHA256
+<span class="ck">&lt;ca&gt;</span>
+  <span class="cm"># Certificat CA Stormshield (inclus dans le profil)</span>
+<span class="ck">&lt;/ca&gt;</span>
+pkcs12 medecin-vpn.p12</code></pre>
+      <div class="box box-warn"><strong>⚠️ Point en attente :</strong> L'authentification mutuelle (certificat + mot de passe) doit être testée depuis un réseau externe réel. La connexion au portail s'établit mais la validation complète est en cours.</div>
+      <h2 class="s">Procédure de test</h2>
+      <ol>
+        <li>Importer <code>medecin-vpn.p12</code> dans OpenVPN Connect v3</li>
+        <li>Se connecter — vérifier l'attribution d'une IP en <code>10.0.20.x</code></li>
+        <li>Tester l'accès à <code>https://10.0.11.22</code></li>
+        <li>Vérifier les logs Stormshield : <em>Supervision › Journaux › VPN SSL</em></li>
+      </ol>
+    </div>
+
+    <!-- P2-S10 -->
+    <div id="p2-10" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Supervision — Nagios</div>
+        <div class="sec-meta">
+          <span class="badge b-vm">10.0.1.10 — LAN</span>
+          <span class="badge b-info">Debian — Nagios Core</span>
+          <span class="badge b-done">✅ Terminé</span>
+        </div>
+      </div>
+      <p>Nagios Core est déployé sur <code>10.0.1.10</code> (LAN). Il supervise les hôtes de la DMZ et les équipements réseau via ICMP, HTTP/HTTPS et SNMP.</p>
+      <h2 class="s">Installation Nagios Core</h2>
+      <pre><span class="pre-lang">Bash</span><code><span class="cm"># Dépendances</span>
+sudo apt install -y build-essential libgd-dev openssl libssl-dev \
+  apache2 php libapache2-mod-php wget unzip
+
+<span class="cm"># Créer l'utilisateur nagios</span>
+sudo useradd -m -s /bin/bash nagios
+sudo usermod -aG nagios www-data
+
+<span class="cm"># Compiler Nagios Core 4.5.x</span>
+./configure --with-httpd-conf=/etc/apache2/sites-enabled
+make all && sudo make install
+sudo make install-init install-commandmode install-config install-webconf
+
+<span class="cm"># Créer l'utilisateur web d'administration</span>
+sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+
+sudo systemctl enable --now nagios apache2</code></pre>
+      <h2 class="s">Hôtes supervisés</h2>
+      <table>
+        <tr><th>Hôte</th><th>IP</th><th>Checks actifs</th></tr>
+        <tr><td>SRV-WEB-DMZ</td><td>10.0.11.22</td><td>ICMP, HTTPS, charge CPU (NSClient++)</td></tr>
+        <tr><td>server-bdd</td><td>10.0.11.10</td><td>ICMP, SSH/22, MySQL (check_mysql)</td></tr>
+        <tr><td>Stormshield</td><td>10.0.11.254</td><td>ICMP, SNMP/161</td></tr>
+      </table>
+      <h2 class="s">Définition hôte + service</h2>
+      <pre><span class="pre-lang">Nagios</span><code><span class="cm"># /usr/local/nagios/etc/objects/dmz-hosts.cfg</span>
+define host {
+  host_name          SRV-WEB-DMZ
+  alias              Serveur Web DMZ IIS
+  address            10.0.11.22
+  max_check_attempts 3
+  check_period       24x7
+  check_command      check-host-alive
+}
+
+define service {
+  host_name           SRV-WEB-DMZ
+  service_description HTTPS Questionnaire
+  check_command       check_https!-H 10.0.11.22 --ssl
+  check_interval      5
+  max_check_attempts  3
+  check_period        24x7
+}</code></pre>
+      <div class="box box-ok"><strong>Résultat :</strong> Interface Nagios sur http://10.0.1.10/nagios. Les 3 hôtes sont en état OK. Alertes email configurées pour les états CRITICAL.</div>
+    </div>
+
+    <!-- ══════════ PROJET 3 ══════════ -->
+
+    <!-- P3-S1 -->
+    <div id="p3-1" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Vue d'ensemble — Projet 3</div>
+        <div class="sec-meta">
+          <span class="badge b-info">🏥 Clinique Pasteur</span>
+          <span class="badge b-todo">🔲 Planifié</span>
+          <span class="badge b-vm">Haute disponibilité</span>
+        </div>
+      </div>
+      <p>Le Projet 3 met en place une infrastructure <strong>haute disponibilité</strong> pour l'application mobile de la Clinique Pasteur. Un reverse proxy Nginx répartit la charge entre deux serveurs Node.js. PM2 assure le redémarrage automatique. L'accès distant est assuré via Ngrok.</p>
+      <div class="box box-info"><strong>Objectif :</strong> Tolérance aux pannes — si un serveur Node.js tombe, Nginx bascule automatiquement sur l'instance disponible sans interruption de service.</div>
+      <h2 class="s">Répartition des tâches</h2>
+      <table>
+        <tr><th>Tâche</th><th>Responsable</th><th>Statut</th></tr>
+        <tr><td>Nginx — reverse proxy + load balancing</td><td><span class="ta">Abraham</span></td><td>🔲</td></tr>
+        <tr><td>HTTPS sur Nginx (OpenSSL auto-signé)</td><td><span class="ta">Abraham</span></td><td>🔲</td></tr>
+        <tr><td>Règles Stormshield (port 443 → Nginx)</td><td><span class="ta">Abraham</span></td><td>🔲</td></tr>
+        <tr><td>Tunnel Ngrok</td><td><span class="ta">Abraham</span></td><td>🔲</td></tr>
+        <tr><td>Tests de tolérance aux pannes</td><td><span class="ta">Abraham</span></td><td>🔲</td></tr>
+        <tr><td>VMs Debian (server-nginx, nodejs-1, nodejs-2)</td><td><span class="tb">Mégane</span></td><td>🔲</td></tr>
+        <tr><td>Node.js — installation + déploiement API</td><td><span class="tb">Mégane</span></td><td>🔲</td></tr>
+        <tr><td>PM2 — redémarrage automatique</td><td><span class="tb">Mégane</span></td><td>🔲</td></tr>
+        <tr><td>Nagios — supervision 3 nouveaux serveurs</td><td><span class="tb">Mégane</span></td><td>🔲</td></tr>
+      </table>
+      <h2 class="s">Architecture cible</h2>
+      <div class="netdiag"><span class="nd-int">[ Application Mobile ]</span>
+        |
+        | HTTPS/443  (ou tunnel Ngrok)
+        |
+<span class="nd-fw">[ Stormshield ]</span> ── port 443 autorisé vers Nginx uniquement
+        |
+<span class="nd-dmz">[ server-nginx   10.0.11.30 ]</span>  ← Reverse proxy + Load balancer
+       / \
+      /   \  round-robin
+     /     \
+<span class="nd-host">[ nodejs-1  10.0.11.31 ]</span>  <span class="nd-host">[ nodejs-2  10.0.11.32 ]</span>
+  Node.js :3000           Node.js :3000
+  PM2 (auto-restart)      PM2 (auto-restart)
+
+<span class="nd-vpn">[ Nagios 10.0.1.10 ]</span> ── supervision des 3 nouveaux serveurs</div>
+    </div>
+
+    <!-- P3-S2 -->
+    <div id="p3-2" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Schéma réseau — Projet 3</div>
+        <div class="sec-meta">
+          <span class="badge b-info">DMZ — 10.0.11.0/24</span>
+          <span class="badge b-todo">🔲 Planifiée</span>
+        </div>
+      </div>
+      <h2 class="s">Nouveaux serveurs</h2>
+      <table>
+        <tr><th>Serveur</th><th>IP</th><th>OS</th><th>Rôle</th><th>Responsable</th></tr>
+        <tr><td>server-nginx</td><td><code>10.0.11.30</code></td><td>Debian 12</td><td>Nginx — reverse proxy + SSL termination</td><td><span class="ta">Abraham</span></td></tr>
+        <tr><td>server-nodejs-1</td><td><code>10.0.11.31</code></td><td>Debian 12</td><td>Node.js API — instance 1</td><td><span class="tb">Mégane</span></td></tr>
+        <tr><td>server-nodejs-2</td><td><code>10.0.11.32</code></td><td>Debian 12</td><td>Node.js API — instance 2</td><td><span class="tb">Mégane</span></td></tr>
+      </table>
+      <h2 class="s">Configuration réseau statique</h2>
+      <pre><span class="pre-lang">Bash</span><code><span class="cm"># /etc/network/interfaces — exemple pour server-nginx</span>
+auto eth0
+iface eth0 inet static
+  address   10.0.11.30
+  netmask   255.255.255.0
+  gateway   10.0.11.254
+  dns-nameservers 10.0.11.254
+
+sudo systemctl restart networking
+ip addr show eth0</code></pre>
+      <div class="box box-info"><strong>Note :</strong> Seul le port 443 de <code>server-nginx</code> est exposé depuis l'extérieur. Les instances Node.js (:3000) ne sont accessibles qu'en interne depuis Nginx.</div>
+    </div>
+
+    <!-- P3-S3 -->
+    <div id="p3-3" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Nginx — Reverse proxy &amp; Load balancing</div>
+        <div class="sec-meta">
+          <span class="badge b-vm">server-nginx — 10.0.11.30</span>
+          <span class="badge b-todo">🔲 Planifiée</span>
+        </div>
+      </div>
+      <p>Nginx est configuré en <strong>round-robin</strong> : chaque requête est transmise alternativement à <code>nodejs-1</code> puis <code>nodejs-2</code>. En cas de panne, le trafic est automatiquement redirigé.</p>
+      <h2 class="s">Installation</h2>
+      <pre><span class="pre-lang">Bash</span><code>sudo apt update && sudo apt install nginx -y
+sudo systemctl enable --now nginx</code></pre>
+      <h2 class="s">Configuration reverse proxy</h2>
+      <pre><span class="pre-lang">Nginx</span><code><span class="cm"># /etc/nginx/sites-available/clinique-api</span>
+
+upstream nodejs_backend {
+    server 10.0.11.31:3000;
+    server 10.0.11.32:3000;
+    <span class="cm"># Round-robin par défaut — pas de directive nécessaire</span>
+}
+
+server {
+    listen 80;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name clinique-api.local;
+
+    ssl_certificate     /etc/nginx/ssl/clinique.crt;
+    ssl_certificate_key /etc/nginx/ssl/clinique.key;
+    ssl_protocols       TLSv1.2 TLSv1.3;
+
+    location / {
+        proxy_pass         http://nodejs_backend;
+        proxy_http_version 1.1;
+        proxy_set_header   Host              $host;
+        proxy_set_header   X-Real-IP         $remote_addr;
+        proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_connect_timeout 5s;
+    }
+}</code></pre>
+      <pre><span class="pre-lang">Bash</span><code>sudo ln -s /etc/nginx/sites-available/clinique-api /etc/nginx/sites-enabled/
+sudo nginx -t && sudo systemctl reload nginx</code></pre>
+    </div>
+
+    <!-- P3-S4 -->
+    <div id="p3-4" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Serveurs Node.js — 2 instances</div>
+        <div class="sec-meta">
+          <span class="badge b-vm">nodejs-1 · nodejs-2</span>
+          <span class="badge b-info">Debian 12</span>
+          <span class="badge b-todo">🔲 Planifiée</span>
+        </div>
+      </div>
+      <p>Deux serveurs Node.js identiques hébergent l'API mobile. Ils sont déployés de manière symétrique pour permettre la bascule automatique.</p>
+      <h2 class="s">Installation Node.js 20 LTS</h2>
+      <pre><span class="pre-lang">Bash</span><code>curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+node --version && npm --version</code></pre>
+      <h2 class="s">Déploiement de l'API</h2>
+      <pre><span class="pre-lang">Bash</span><code>sudo mkdir -p /opt/clinique-api
+cd /opt/clinique-api
+npm install --production</code></pre>
+      <h2 class="s">Exemple app.js (Express)</h2>
+      <pre><span class="pre-lang">JavaScript</span><code><span class="ck">const</span> express = require(<span class="cs">'express'</span>);
+<span class="ck">const</span> app = express();
+app.use(express.json());
+
+<span class="cm">// Health check — utilisé par Nagios et les tests</span>
+app.get(<span class="cs">'/health'</span>, (req, res) =&gt; {
+  res.json({ status: <span class="cs">'ok'</span>, server: process.env.HOSTNAME });
+});
+
+app.listen(<span class="cn">3000</span>, () =&gt; console.log(<span class="cs">'API :3000'</span>));</code></pre>
+    </div>
+
+    <!-- P3-S5 -->
+    <div id="p3-5" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Gestion PM2 — Redémarrage automatique</div>
+        <div class="sec-meta">
+          <span class="badge b-vm">nodejs-1 · nodejs-2</span>
+          <span class="badge b-todo">🔲 Planifiée</span>
+        </div>
+      </div>
+      <p>PM2 assure le redémarrage automatique de l'API en cas de crash et son démarrage au boot du système.</p>
+      <h2 class="s">Installation et démarrage</h2>
+      <pre><span class="pre-lang">Bash</span><code>sudo npm install -g pm2
+
+cd /opt/clinique-api
+pm2 start app.js --name clinique-api --env production
+
+<span class="cm"># Démarrage automatique au boot</span>
+pm2 startup systemd   <span class="cm"># exécuter la commande sudo générée</span>
+pm2 save</code></pre>
+      <h2 class="s">Commandes utiles</h2>
+      <pre><span class="pre-lang">Bash</span><code>pm2 list                      <span class="cm"># État des processus</span>
+pm2 monit                     <span class="cm"># Monitoring temps réel</span>
+pm2 logs clinique-api         <span class="cm"># Logs</span>
+pm2 reload clinique-api       <span class="cm"># Rechargement sans downtime</span>
+pm2 stop clinique-api         <span class="cm"># Arrêt (test de tolérance)</span></code></pre>
+    </div>
+
+    <!-- P3-S6 -->
+    <div id="p3-6" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">HTTPS sur Nginx — Certificat OpenSSL auto-signé</div>
+        <div class="sec-meta">
+          <span class="badge b-vm">server-nginx — 10.0.11.30</span>
+          <span class="badge b-todo">🔲 Planifiée</span>
+        </div>
+      </div>
+      <p>Génération d'un certificat SSL auto-signé via OpenSSL pour sécuriser les communications entre les clients et le reverse proxy Nginx.</p>
+      <h2 class="s">Génération du certificat</h2>
+      <pre><span class="pre-lang">Bash</span><code>sudo mkdir -p /etc/nginx/ssl
+
+sudo openssl req -x509 -nodes -days 730 \
+  -newkey rsa:2048 \
+  -keyout /etc/nginx/ssl/clinique.key \
+  -out    /etc/nginx/ssl/clinique.crt \
+  -subj "/C=FR/ST=HautsPyrenees/L=Tarbes/O=Clinique Pasteur/CN=clinique-api.local" \
+  -addext "subjectAltName=IP:10.0.11.30,DNS:clinique-api.local"
+
+sudo chmod 600 /etc/nginx/ssl/clinique.key
+
+<span class="cm"># Vérifier le certificat</span>
+openssl x509 -in /etc/nginx/ssl/clinique.crt -noout -text | grep -E "Subject:|IP:"</code></pre>
+      <h2 class="s">Paramètres SSL Nginx</h2>
+      <pre><span class="pre-lang">Nginx</span><code>ssl_certificate     /etc/nginx/ssl/clinique.crt;
+ssl_certificate_key /etc/nginx/ssl/clinique.key;
+ssl_protocols       TLSv1.2 TLSv1.3;
+ssl_prefer_server_ciphers on;
+ssl_ciphers         ECDH+AESGCM:ECDH+AES256:!aNULL:!MD5;
+ssl_session_cache   shared:SSL:10m;</code></pre>
+    </div>
+
+    <!-- P3-S7 -->
+    <div id="p3-7" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Règles Stormshield — Port 443 vers Nginx uniquement</div>
+        <div class="sec-meta">
+          <span class="badge b-info">Stormshield SNS</span>
+          <span class="badge b-todo">🔲 Planifiée</span>
+        </div>
+      </div>
+      <p>Seul <code>server-nginx</code> est exposé sur le port 443. Les instances Node.js (port 3000) ne sont accessibles que depuis Nginx, jamais directement.</p>
+      <table>
+        <tr><th>N°</th><th>Action</th><th>Source</th><th>Destination</th><th>Service</th><th>Description</th></tr>
+        <tr><td>P3-1</td><td>✅ ALLOW</td><td>Any</td><td>server-nginx (10.0.11.30)</td><td>HTTPS/443</td><td>Accès API mobile — Nginx uniquement</td></tr>
+        <tr><td>P3-2</td><td>✅ ALLOW</td><td>server-nginx</td><td>nodejs-1 (10.0.11.31)</td><td>HTTP/3000</td><td>Nginx → Node.js instance 1</td></tr>
+        <tr><td>P3-3</td><td>✅ ALLOW</td><td>server-nginx</td><td>nodejs-2 (10.0.11.32)</td><td>HTTP/3000</td><td>Nginx → Node.js instance 2</td></tr>
+        <tr><td>P3-4</td><td>🔴 BLOCK</td><td>Any</td><td>nodejs-1, nodejs-2</td><td>HTTP/3000</td><td>Bloquer accès direct aux backends</td></tr>
+        <tr><td>P3-5</td><td>✅ ALLOW</td><td>Nagios (10.0.1.10)</td><td>10.0.11.30–32</td><td>ICMP, SNMP</td><td>Supervision 3 nouveaux hôtes</td></tr>
+      </table>
+    </div>
+
+    <!-- P3-S8 -->
+    <div id="p3-8" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Accès distant — Tunnel Ngrok</div>
+        <div class="sec-meta">
+          <span class="badge b-vm">server-nginx — 10.0.11.30</span>
+          <span class="badge b-todo">🔲 Planifiée</span>
+        </div>
+      </div>
+      <p>Ngrok crée un tunnel sécurisé entre l'API interne (<code>https://10.0.11.30</code>) et un endpoint public. L'application mobile utilise cette URL pour atteindre l'API depuis n'importe quel réseau.</p>
+      <h2 class="s">Installation</h2>
+      <pre><span class="pre-lang">Bash</span><code>curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | \
+  sudo tee /etc/apt/trusted.gpg.d/ngrok.asc &gt;/dev/null
+echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | \
+  sudo tee /etc/apt/sources.list.d/ngrok.list
+sudo apt update && sudo apt install ngrok -y
+
+ngrok config add-authtoken &lt;TOKEN_NGROK&gt;</code></pre>
+      <h2 class="s">Configuration tunnel</h2>
+      <pre><span class="pre-lang">YAML</span><code><span class="cm"># ~/.config/ngrok/ngrok.yml</span>
+version: <span class="cs">"2"</span>
+authtoken: &lt;TOKEN_NGROK&gt;
+
+tunnels:
+  clinique-api:
+    proto: https
+    addr: https://10.0.11.30:443</code></pre>
+      <pre><span class="pre-lang">Bash</span><code><span class="cm"># Démarrer et gérer via PM2</span>
+pm2 start "ngrok start clinique-api" --name ngrok-tunnel
+pm2 save</code></pre>
+      <div class="box box-info"><strong>URL publique :</strong> Ngrok génère une URL <code>https://xxxx.ngrok-free.app</code> à communiquer à l'application mobile.</div>
+    </div>
+
+    <!-- P3-S9 -->
+    <div id="p3-9" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Supervision Nagios — 3 nouveaux serveurs</div>
+        <div class="sec-meta">
+          <span class="badge b-vm">Nagios — 10.0.1.10</span>
+          <span class="badge b-todo">🔲 Planifiée</span>
+        </div>
+      </div>
+      <p>Les 3 serveurs du Projet 3 sont ajoutés à la supervision Nagios existante, avec des checks HTTP spécifiques sur l'endpoint <code>/health</code>.</p>
+      <h2 class="s">Configuration Nagios</h2>
+      <pre><span class="pre-lang">Nagios</span><code><span class="cm"># /usr/local/nagios/etc/objects/p3-hosts.cfg</span>
+
+define host {
+  host_name    server-nginx
+  address      10.0.11.30
+  use          linux-server
+}
+define host {
+  host_name    server-nodejs-1
+  address      10.0.11.31
+  use          linux-server
+}
+define host {
+  host_name    server-nodejs-2
+  address      10.0.11.32
+  use          linux-server
+}
+
+define service {
+  host_name           server-nginx
+  service_description API HTTPS Health
+  check_command       check_https!-H 10.0.11.30 -u /health --ssl
+  check_interval      2
+  max_check_attempts  3
+}
+
+define service {
+  host_name           server-nodejs-1
+  service_description Node.js Health
+  check_command       check_http!-H 10.0.11.31 -p 3000 -u /health
+  check_interval      2
+}</code></pre>
+      <pre><span class="pre-lang">Bash</span><code>sudo /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
+sudo systemctl reload nagios</code></pre>
+    </div>
+
+    <!-- P3-S10 -->
+    <div id="p3-10" class="section-content">
+      <div class="sec-header">
+        <div class="sec-title">Tests de tolérance aux pannes</div>
+        <div class="sec-meta">
+          <span class="badge b-todo">🔲 Planifiée</span>
+        </div>
+      </div>
+      <p>Arrêt d'une instance Node.js puis vérification que Nginx bascule automatiquement sur l'instance disponible sans interruption visible côté client.</p>
+      <h2 class="s">Procédure</h2>
+      <table>
+        <tr><th>#</th><th>Action</th><th>Commande</th><th>Résultat attendu</th></tr>
+        <tr><td>1</td><td>État initial</td><td><code>curl -sk https://10.0.11.30/health</code></td><td>Round-robin entre nodejs-1 et nodejs-2</td></tr>
+        <tr><td>2</td><td>Boucle de requêtes</td><td><code>watch -n1 "curl -sk https://10.0.11.30/health"</code></td><td>Alternance server 1 / server 2</td></tr>
+        <tr><td>3</td><td>Arrêter nodejs-1</td><td><code>pm2 stop clinique-api</code> (sur nodejs-1)</td><td>PM2 arrêté</td></tr>
+        <tr><td>4</td><td>Vérifier basculement</td><td><code>curl -sk https://10.0.11.30/health</code></td><td>100% des réponses depuis nodejs-2</td></tr>
+        <tr><td>5</td><td>Relancer nodejs-1</td><td><code>pm2 start clinique-api</code> (sur nodejs-1)</td><td>Round-robin reprend</td></tr>
+        <tr><td>6</td><td>Logs Nginx</td><td><code>tail -f /var/log/nginx/access.log</code></td><td>Redirections loggées</td></tr>
+      </table>
+      <h2 class="s">Script de test automatisé</h2>
+      <pre><span class="pre-lang">Bash</span><code><span class="cm">#!/bin/bash</span>
+PASS=<span class="cn">0</span>; FAIL=<span class="cn">0</span>
+for i in $(seq 1 20); do
+  code=$(curl -sk -o /dev/null -w <span class="cs">"%{http_code}"</span> https://10.0.11.30/health)
+  [ <span class="cs">"$code"</span> = <span class="cs">"200"</span> ] && PASS=$((PASS+1)) || FAIL=$((FAIL+1))
+done
+echo <span class="cs">"Résultat : $PASS/20 réussies"</span>
+[ $FAIL -eq 0 ] && echo <span class="cs">"✅ TOLÉRANCE OK"</span> || echo <span class="cs">"❌ BASCULEMENT INCOMPLET"</span></code></pre>
+      <div class="box box-info"><strong>Critère :</strong> 20/20 requêtes réussies lors du test de basculement = tolérance aux pannes validée.</div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  function show(id, el) {
+    document.querySelectorAll('.section-content').forEach(function(s){s.classList.remove('visible')});
+    var sec = document.getElementById(id);
+    if (sec) sec.classList.add('visible');
+    var proj = id.startsWith('p3') ? 'p3' : 'p2';
+    document.querySelectorAll('#sb-' + proj + ' .nav-item').forEach(function(n){n.classList.remove('active')});
+    if (el) el.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  window.show = show;
+
+  window.switchTab = function(proj, btn) {
+    document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
+    btn.classList.add('active');
+    document.getElementById('sb-p2').style.display = proj === 'p2' ? '' : 'none';
+    document.getElementById('sb-p3').style.display = proj === 'p3' ? '' : 'none';
+    document.querySelectorAll('.section-content').forEach(function(s){s.classList.remove('visible')});
+    var first = document.getElementById(proj + '-1');
+    if (first) first.classList.add('visible');
+    document.querySelectorAll('#sb-' + proj + ' .nav-item').forEach(function(n){n.classList.remove('active')});
+    var nav = document.querySelector('#sb-' + proj + ' .nav-item');
+    if (nav) nav.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+
+  window.toggleSidebar = function() {
+    document.getElementById('sidebar').classList.toggle('open');
+  };
+})();
+</script>
+</body>
+</html>
