@@ -247,8 +247,9 @@ td code{font-size:.78rem}
       <table>
         <tr><th>VM</th><th>Nom</th><th>OS</th><th>IP</th><th>Rôle</th><th>Zone</th></tr>
         <tr><td>112</td><td>SRV-WEB-DMZ</td><td>Windows Server 2019</td><td><code>10.0.11.22</code></td><td>IIS + PHP + Questionnaire médical</td><td>DMZ</td></tr>
-        <tr><td>107</td><td>server-bdd</td><td>Debian 11</td><td><code>10.0.11.10</code></td><td>Base de données MySQL</td><td>DMZ</td></tr>
-        <tr><td>—</td><td>Stormshield SNS</td><td>SNS OS</td><td><code>10.0.11.254</code></td><td>Pare-feu / VPN SSL / portail OpenVPN</td><td>Périmètre</td></tr>
+        <tr><td>107</td><td>server-bdd</td><td>Debian 12</td><td><code>10.0.11.10</code></td><td>Base de données MySQL</td><td>DMZ</td></tr>
+        <tr><td>—</td><td>Stormshield SN210W</td><td>SNS OS</td><td><code>10.0.11.254</code> (DMZ) · <code>10.0.1.254</code> (LAN)</td><td>Pare-feu / VPN SSL / portail OpenVPN</td><td>Périmètre</td></tr>
+        <tr><td>—</td><td>Proxmox VE</td><td>Proxmox</td><td><code>10.0.11.x</code></td><td>Hyperviseur — physiquement en DMZ</td><td>DMZ</td></tr>
       </table>
     </div>
 
@@ -464,7 +465,7 @@ td code{font-size:.78rem}
         <div class="sec-title">Sécurisation Debian — server-bdd</div>
         <div class="sec-meta">
           <span class="badge b-vm">VM 107 — 10.0.11.10</span>
-          <span class="badge b-info">Debian 11</span>
+          <span class="badge b-info">Debian 12</span>
           <span class="badge b-done">✅ Terminé</span>
         </div>
       </div>
@@ -479,15 +480,9 @@ sudo systemctl status apache2</code></pre>
       <h2 class="s">3. Configuration UFW</h2>
       <pre><span class="pre-lang">Bash</span><code>sudo ufw default deny incoming
 sudo ufw default allow outgoing
-
-<span class="cm"># SSH uniquement depuis le LAN</span>
-sudo ufw allow from 10.0.1.0/24 to any port 22 proto tcp
-
-<span class="cm"># MySQL uniquement depuis SRV-WEB-DMZ</span>
-sudo ufw allow from 10.0.11.22 to any port 3306 proto tcp
-
-sudo ufw --force enable
-sudo ufw status verbose</code></pre>
+sudo ufw allow ssh
+sudo ufw enable
+sudo ufw status</code></pre>
       <h2 class="s">4. Durcissement SSH</h2>
       <pre><span class="pre-lang">Bash</span><code><span class="cm"># /etc/ssh/sshd_config</span>
 PermitRootLogin no
@@ -499,17 +494,9 @@ AllowUsers adminbdd
 sudo systemctl restart sshd</code></pre>
       <h2 class="s">5. Fail2ban</h2>
       <pre><span class="pre-lang">Bash</span><code>sudo apt install fail2ban -y
-sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-
-<span class="cm"># jail.local → [sshd]</span>
-<span class="cm"># enabled  = true</span>
-<span class="cm"># maxretry = 3</span>
-<span class="cm"># bantime  = 3600</span>
-<span class="cm"># findtime = 600</span>
-
-sudo systemctl enable --now fail2ban
+sudo systemctl enable fail2ban
 sudo fail2ban-client status sshd</code></pre>
-      <div class="box box-ok"><strong>Résultat :</strong> Ports ouverts : 22 (LAN seul) et 3306 (10.0.11.22 seul). Connexion root SSH impossible. Fail2ban actif.</div>
+      <div class="box box-ok"><strong>Résultat :</strong> Connexion root SSH désactivée. UFW actif, seul SSH autorisé en entrée. Fail2ban actif contre le brute-force.</div>
     </div>
 
     <!-- P2-S8 -->
@@ -560,7 +547,9 @@ sudo fail2ban-client status sshd</code></pre>
         <tr><td>Protocole</td><td>OpenVPN SSL (TCP/443)</td></tr>
         <tr><td>Utilisateur</td><td><code>medecin</code></td></tr>
         <tr><td>Certificat client</td><td><code>medecin-vpn.p12</code> (PKCS#12)</td></tr>
-        <tr><td>Client</td><td>OpenVPN Connect v3</td></tr>
+        <tr><td>Client</td><td>OpenVPN Connect v3 — VM <code>10.0.11.15</code></td></tr>
+        <tr><td>Annuaire</td><td>LDAP — <code>clinique-pasteur.local</code></td></tr>
+        <tr><td>CA</td><td>CA-Clinique-Pasteur</td></tr>
       </table>
       <h2 class="s">Profil OpenVPN (.ovpn)</h2>
       <pre><span class="pre-lang">OpenVPN</span><code>client
@@ -576,7 +565,7 @@ auth SHA256
   <span class="cm"># Certificat CA Stormshield (inclus dans le profil)</span>
 <span class="ck">&lt;/ca&gt;</span>
 pkcs12 medecin-vpn.p12</code></pre>
-      <div class="box box-warn"><strong>⚠️ Point en attente :</strong> L'authentification mutuelle (certificat + mot de passe) doit être testée depuis un réseau externe réel. La connexion au portail s'établit mais la validation complète est en cours.</div>
+      <div class="box box-warn"><strong>⚠️ Point bloquant :</strong> Échec d'authentification sur le portail SSL <code>https://10.0.11.254</code>. La connexion OpenVPN s'établit mais l'authentification LDAP échoue — la liaison entre le Stormshield et l'annuaire <code>clinique-pasteur.local</code> est à vérifier (DN de service, port 389, accès réseau).</div>
       <h2 class="s">Procédure de test</h2>
       <ol>
         <li>Importer <code>medecin-vpn.p12</code> dans OpenVPN Connect v3</li>
@@ -618,9 +607,9 @@ sudo systemctl enable --now nagios apache2</code></pre>
       <h2 class="s">Hôtes supervisés</h2>
       <table>
         <tr><th>Hôte</th><th>IP</th><th>Checks actifs</th></tr>
-        <tr><td>SRV-WEB-DMZ</td><td>10.0.11.22</td><td>ICMP, HTTPS, charge CPU (NSClient++)</td></tr>
-        <tr><td>server-bdd</td><td>10.0.11.10</td><td>ICMP, SSH/22, MySQL (check_mysql)</td></tr>
-        <tr><td>Stormshield</td><td>10.0.11.254</td><td>ICMP, SNMP/161</td></tr>
+        <tr><td>SRV-WEB-DMZ</td><td>10.0.11.22</td><td>HTTP, HTTPS, Ping</td></tr>
+        <tr><td>server-bdd</td><td>10.0.11.10</td><td>SSH, Ping</td></tr>
+        <tr><td>Stormshield</td><td>10.0.11.254</td><td>Ping</td></tr>
       </table>
       <h2 class="s">Définition hôte + service</h2>
       <pre><span class="pre-lang">Nagios</span><code><span class="cm"># /usr/local/nagios/etc/objects/dmz-hosts.cfg</span>
@@ -683,7 +672,7 @@ define service {
       /   \  round-robin
      /     \
 <span class="nd-host">[ nodejs-1  10.0.11.31 ]</span>  <span class="nd-host">[ nodejs-2  10.0.11.32 ]</span>
-  Node.js :3000           Node.js :3000
+  Node.js :3000           Node.js :3001
   PM2 (auto-restart)      PM2 (auto-restart)
 
 <span class="nd-vpn">[ Nagios 10.0.1.10 ]</span> ── supervision des 3 nouveaux serveurs</div>
@@ -702,8 +691,8 @@ define service {
       <table>
         <tr><th>Serveur</th><th>IP</th><th>OS</th><th>Rôle</th><th>Responsable</th></tr>
         <tr><td>server-nginx</td><td><code>10.0.11.30</code></td><td>Debian 12</td><td>Nginx — reverse proxy + SSL termination</td><td><span class="ta">Abraham</span></td></tr>
-        <tr><td>server-nodejs-1</td><td><code>10.0.11.31</code></td><td>Debian 12</td><td>Node.js API — instance 1</td><td><span class="tb">Mégane</span></td></tr>
-        <tr><td>server-nodejs-2</td><td><code>10.0.11.32</code></td><td>Debian 12</td><td>Node.js API — instance 2</td><td><span class="tb">Mégane</span></td></tr>
+        <tr><td>server-nodejs-1</td><td><code>10.0.11.31</code></td><td>Debian 12</td><td>Node.js API — instance 1 (port 3000)</td><td><span class="tb">Mégane</span></td></tr>
+        <tr><td>server-nodejs-2</td><td><code>10.0.11.32</code></td><td>Debian 12</td><td>Node.js API — instance 2 (port 3001)</td><td><span class="tb">Mégane</span></td></tr>
       </table>
       <h2 class="s">Configuration réseau statique</h2>
       <pre><span class="pre-lang">Bash</span><code><span class="cm"># /etc/network/interfaces — exemple pour server-nginx</span>
@@ -737,7 +726,7 @@ sudo systemctl enable --now nginx</code></pre>
 
 upstream nodejs_backend {
     server 10.0.11.31:3000;
-    server 10.0.11.32:3000;
+    server 10.0.11.32:3001;
     <span class="cm"># Round-robin par défaut — pas de directive nécessaire</span>
 }
 
@@ -873,8 +862,8 @@ ssl_session_cache   shared:SSL:10m;</code></pre>
         <tr><th>N°</th><th>Action</th><th>Source</th><th>Destination</th><th>Service</th><th>Description</th></tr>
         <tr><td>P3-1</td><td>✅ ALLOW</td><td>Any</td><td>server-nginx (10.0.11.30)</td><td>HTTPS/443</td><td>Accès API mobile — Nginx uniquement</td></tr>
         <tr><td>P3-2</td><td>✅ ALLOW</td><td>server-nginx</td><td>nodejs-1 (10.0.11.31)</td><td>HTTP/3000</td><td>Nginx → Node.js instance 1</td></tr>
-        <tr><td>P3-3</td><td>✅ ALLOW</td><td>server-nginx</td><td>nodejs-2 (10.0.11.32)</td><td>HTTP/3000</td><td>Nginx → Node.js instance 2</td></tr>
-        <tr><td>P3-4</td><td>🔴 BLOCK</td><td>Any</td><td>nodejs-1, nodejs-2</td><td>HTTP/3000</td><td>Bloquer accès direct aux backends</td></tr>
+        <tr><td>P3-3</td><td>✅ ALLOW</td><td>server-nginx</td><td>nodejs-2 (10.0.11.32)</td><td>HTTP/3001</td><td>Nginx → Node.js instance 2</td></tr>
+        <tr><td>P3-4</td><td>🔴 BLOCK</td><td>Any</td><td>nodejs-1, nodejs-2</td><td>HTTP/3000–3001</td><td>Ports 3000/3001 non exposés directement</td></tr>
         <tr><td>P3-5</td><td>✅ ALLOW</td><td>Nagios (10.0.1.10)</td><td>10.0.11.30–32</td><td>ICMP, SNMP</td><td>Supervision 3 nouveaux hôtes</td></tr>
       </table>
     </div>
@@ -972,7 +961,7 @@ sudo systemctl reload nagios</code></pre>
       <table>
         <tr><th>#</th><th>Action</th><th>Commande</th><th>Résultat attendu</th></tr>
         <tr><td>1</td><td>État initial</td><td><code>curl -sk https://10.0.11.30/health</code></td><td>Round-robin entre nodejs-1 et nodejs-2</td></tr>
-        <tr><td>2</td><td>Boucle de requêtes</td><td><code>watch -n1 "curl -sk https://10.0.11.30/health"</code></td><td>Alternance server 1 / server 2</td></tr>
+        <tr><td>2</td><td>Boucle de requêtes</td><td><code>for i in $(seq 10); do curl -sk https://10.0.11.30/health; done</code></td><td>Alternance server 1 (3000) / server 2 (3001)</td></tr>
         <tr><td>3</td><td>Arrêter nodejs-1</td><td><code>pm2 stop clinique-api</code> (sur nodejs-1)</td><td>PM2 arrêté</td></tr>
         <tr><td>4</td><td>Vérifier basculement</td><td><code>curl -sk https://10.0.11.30/health</code></td><td>100% des réponses depuis nodejs-2</td></tr>
         <tr><td>5</td><td>Relancer nodejs-1</td><td><code>pm2 start clinique-api</code> (sur nodejs-1)</td><td>Round-robin reprend</td></tr>
