@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réalisations - Abraham EMMANUEL</title>
+    <meta name="description" content="Réalisations d'Abraham EMMANUEL, étudiant en BTS SIO option SISR">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0EA5E9;
+            --primary-dark: #0284C7;
+            --secondary-color: #64748B;
+            --bg-dark: #F8FAFC;
+            --bg-darker: #F1F5F9;
+            --bg-secondary: #EFF6FF;
+            --bg-light: #FFFFFF;
+            --text-light: #0A192F;
+            --text-gray: #64748B;
+            --text-lighter: #334155;
+            --accent: #0EA5E9;
+            --accent-light: #38BDF8;
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.06) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(100, 116, 139, 0.04) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.04) 0%, transparent 30%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 1.2rem 2rem;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== LOGO ===== */
+        .logo-fixed {
+            position: fixed;
+            top: 1.5rem;
+            left: 2rem;
+            z-index: 1001;
+        }
+
+        .logo-fixed a {
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-fixed .logo-portfolio {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-fixed .logo-name {
+            color: var(--text-light);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 2rem 4rem;
+        }
+
+        .page-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section-card {
+            background: var(--bg-light);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(14, 165, 233, 0.08);
+            transition: var(--transition);
+        }
+
+        .section-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(14, 165, 233, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .section-card h2 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .section-card h2 .icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .placeholder-text {
+            color: var(--text-gray);
+            font-style: italic;
+            font-size: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--bg-darker);
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 0.75rem;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            color: var(--primary-dark);
+        }
+
+        .footer-links {
+            margin-bottom: 0.75rem;
+        }
+
+        /* ===== BACK BUTTON ===== */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .back-btn:hover {
+            gap: 0.75rem;
+            color: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LOGO -->
+    <div class="logo-fixed">
+        <a href="index.html">
+            <span class="logo-portfolio">PORTFOLIO</span>
+            <span class="logo-name"> Abraham EMMANUEL</span>
+        </a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#profil">Profil</a></li>
+                <li><a href="index.html#projets">Projets</a></li>
+                <li><a href="realisations.html" style="color: var(--primary-color);">Réalisations</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- CONTENU PRINCIPAL -->
+    <main>
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Retour au portfolio
+        </a>
+
+        <h1 class="page-title">Mes Réalisations</h1>
+        <p class="page-subtitle">BTS SIO option SISR — Abraham EMMANUEL</p>
+
+        <!-- Section 1 -->
+        <div class="section-card">
+            <h2>
+                <span class="icon"><i class="fas fa-graduation-cap"></i></span>
+                Réalisations en cours de formation
+            </h2>
+            <p class="placeholder-text">À compléter</p>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section-card">
+            <h2>
+                <span class="icon"><i class="fas fa-briefcase"></i></span>
+                Réalisations en milieu professionnel — 1ère année
+            </h2>
+            <p class="placeholder-text">À compléter</p>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section-card">
+            <h2>
+                <span class="icon"><i class="fas fa-briefcase"></i></span>
+                Réalisations en milieu professionnel — 2ème année
+            </h2>
+            <p class="placeholder-text">À compléter</p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Accueil</a>
+            <a href="index.html#profil">Profil</a>
+            <a href="index.html#projets">Projets</a>
+            <a href="realisations.html">Réalisations</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <div>&copy; 2026 Abraham EMMANUEL - BTS SIO SISR - Tous droits réservés</div>
+    </footer>
+
+</body>
+</html>
