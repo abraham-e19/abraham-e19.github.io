@@ -220,6 +220,24 @@ td code{font-size:.78rem}
       <h2 class="s">Contexte</h2>
       <p>La Clinique Pasteur souhaite moderniser son infrastructure réseau afin de sécuriser les échanges de données médicales et permettre un accès distant sécurisé aux médecins. Le projet couvre la mise en place d'un serveur web en DMZ, la sécurisation des flux par pare-feu Stormshield, le durcissement des serveurs et la mise en place d'un tunnel VPN SSL.</p>
       <div class="box box-info"><strong>Périmètre :</strong> Serveur web IIS en DMZ, base de données MySQL isolée, pare-feu Stormshield, accès VPN SSL pour les médecins distants.</div>
+      <h2 class="s">Organisation du projet</h2>
+      <p>Projet réalisé en <strong>binôme</strong> (Abraham &amp; Mégane) avec suivi des tâches via <strong>GitHub Projects</strong>.</p>
+      <table>
+        <tr><th>Tâche</th><th>Responsable</th><th>Statut</th></tr>
+        <tr><td>Installation IIS</td><td><span class="ta">Abraham</span></td><td>✅</td></tr>
+        <tr><td>PHP + FastCGI</td><td><span class="ta">Abraham</span></td><td>✅</td></tr>
+        <tr><td>Déploiement questionnaire médical</td><td><span class="ta">Abraham</span></td><td>✅</td></tr>
+        <tr><td>Sécurisation HTTPS</td><td><span class="ta">Abraham</span></td><td>✅</td></tr>
+        <tr><td>Isolement DMZ</td><td><span class="ta">Abraham</span></td><td>✅</td></tr>
+        <tr><td>Configuration règles filtrage Stormshield</td><td><span class="ta">Abraham</span></td><td>✅</td></tr>
+        <tr><td>VPN SSL pour les médecins</td><td><span class="ta">Abraham</span></td><td>⚠️ Problème infrastructure lycée</td></tr>
+        <tr><td>Alertes email Nagios</td><td><span class="tb">Mégane</span></td><td>✅</td></tr>
+        <tr><td>Schéma réseau</td><td><span class="tb">Mégane</span></td><td>✅</td></tr>
+        <tr><td>Mise en place DMZ</td><td><span class="tb">Mégane</span></td><td>✅</td></tr>
+        <tr><td>Supervision Nagios/Centreon</td><td><span class="tb">Mégane</span></td><td><span class="badge b-wip">En cours</span></td></tr>
+        <tr><td>Sécurisation serveurs Debian</td><td><span class="tb">Mégane</span></td><td><span class="badge b-wip">En cours</span></td></tr>
+      </table>
+      <div class="box box-info"><strong>Documentation :</strong> <a href="https://github.com/abraham-e19/Documentation-Clinique-Pasteur-P2" target="_blank" style="color:var(--b700)">github.com/abraham-e19/Documentation-Clinique-Pasteur-P2</a></div>
       <h2 class="s">Architecture réseau</h2>
       <div class="netdiag"><span class="nd-int">[ INTERNET ]</span>
         |
