@@ -704,6 +704,63 @@
             transform: scale(1.05);
         }
 
+        .mission-item {
+            background: var(--bg-secondary);
+            padding: 1.4rem 1.5rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--primary-color);
+            display: flex;
+            gap: 0.9rem;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .mission-item:hover {
+            border-left-color: var(--accent-light);
+            box-shadow: var(--shadow);
+        }
+
+        .mission-item .mission-icon {
+            color: var(--primary-color);
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+            font-size: 0.82rem;
+        }
+
+        .mission-item p {
+            color: var(--text-gray);
+            line-height: 1.65;
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .competence-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.2rem;
+            background: rgba(14, 165, 233, 0.07);
+            color: var(--primary-color);
+            border: 1.5px solid rgba(14, 165, 233, 0.28);
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 0.88rem;
+            transition: all 0.2s ease;
+        }
+
+        .competence-badge:hover {
+            background: rgba(14, 165, 233, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .doc-card {
+            background: var(--bg-secondary);
+            padding: 1.8rem 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-dark);
+            margin-bottom: 2rem;
+        }
+
         /* ===== PROJETS ===== */
         #projets {
             background: var(--bg-dark);
@@ -1528,11 +1585,12 @@
         </div>
     </section>
 
- <!-- ENTREPRISE / STAGE -->
+    <!-- ENTREPRISE / STAGE -->
     <section id="entreprise">
         <div class="container">
             <h2>Mon Stage chez Linkt</h2>
             <div class="entreprise-card">
+
                 <!-- En-tête avec logo et infos -->
                 <div class="entreprise-header">
                     <div class="entreprise-logo">
@@ -1542,8 +1600,14 @@
                     </div>
                     <div class="entreprise-info">
                         <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Linkt - Opérateur Fibre Haut Débit</h3>
-                        <p style="color: var(--text-gray); margin-bottom: 0.3rem;">📍 1 Rue Guglielmo Marconi • 76130 Mont-Saint-Aignan • Normandie</p>
-                        <p style="color: var(--accent); font-weight: 600;">📅 Stage du 12 janvier au 13 février 2026</p>
+                        <p style="color: var(--text-gray); margin-bottom: 0.3rem;">
+                            <i class="fas fa-map-marker-alt" style="color: var(--accent); margin-right: 0.4rem;"></i>
+                            1 Rue Guglielmo Marconi • 76130 Mont-Saint-Aignan • Normandie
+                        </p>
+                        <p style="color: var(--accent); font-weight: 600;">
+                            <i class="fas fa-calendar-alt" style="margin-right: 0.4rem;"></i>
+                            Stage du 12 janvier au 13 février 2026
+                        </p>
                     </div>
                 </div>
 
@@ -1553,18 +1617,18 @@
                         <i class="fas fa-building"></i> Présentation de l'entreprise
                     </h4>
                     <p style="color: var(--text-gray); line-height: 1.8; margin-bottom: 1rem;">
-                        <strong style="color: var(--text-light);">Linkt</strong> est un opérateur télécom alternatif spécialisé dans la fibre optique en Normandie. 
-                        L'entreprise propose des solutions Haut Débit et Très Haut Débit pour les particuliers et les professionnels. 
+                        <strong style="color: var(--text-light);">Linkt</strong> est un opérateur télécom alternatif spécialisé dans la fibre optique en Normandie.
+                        L'entreprise propose des solutions Haut Débit et Très Haut Débit pour les particuliers et les professionnels.
                         Dans un secteur très concurrentiel, Linkt se distingue par son ancrage régional et son service client de proximité.
                     </p>
                     <p style="color: var(--text-gray); line-height: 1.8; margin-bottom: 1rem;">
-                        Le siège de Linkt est situé à Mont-Saint-Aignan en Normandie. L'entreprise dispose d'une équipe technique 
+                        Le siège de Linkt est situé à Mont-Saint-Aignan en Normandie. L'entreprise dispose d'une équipe technique
                         chargée du support client, du diagnostic des incidents réseau et de l'exploitation des infrastructures télécom.
                     </p>
                     <div style="margin-top: 1.5rem;">
-                        <a href="https://www.youtube.com/watch?v=YBNN7Z2jmYE" target="_blank" 
+                        <a href="https://www.youtube.com/watch?v=YBNN7Z2jmYE" target="_blank"
                            style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent); text-decoration: none; font-weight: 500; padding: 0.8rem 1.5rem; background: rgba(14, 165, 233, 0.08); border-radius: 8px; transition: all 0.3s;">
-                            <i class="fab fa-youtube" style="font-size: 1.2rem;"></i> 
+                            <i class="fab fa-youtube" style="font-size: 1.2rem;"></i>
                             Découvrir Linkt en vidéo
                         </a>
                     </div>
@@ -1584,45 +1648,37 @@
                         <i class="fas fa-tasks"></i> Missions réalisées pendant le stage
                     </h4>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
-                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent); transition: all 0.3s;">
-                            <p style="color: var(--text-gray); line-height: 1.6;">
-                                ✓ Traitement des tickets clients via l'outil de ticketing interne
-                            </p>
+                        <div class="mission-item">
+                            <i class="fas fa-check mission-icon"></i>
+                            <p>Traitement des tickets clients via l'outil de ticketing interne</p>
                         </div>
-                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent);">
-                            <p style="color: var(--text-gray); line-height: 1.6;">
-                                ✓ Diagnostic d'incidents réseau avant escalade vers les opérateurs
-                            </p>
+                        <div class="mission-item">
+                            <i class="fas fa-check mission-icon"></i>
+                            <p>Diagnostic d'incidents réseau avant escalade vers les opérateurs</p>
                         </div>
-                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent);">
-                            <p style="color: var(--text-gray); line-height: 1.6;">
-                                ✓ Appels sortants : vérifications techniques, redémarrage équipements, tests de connectivité
-                            </p>
+                        <div class="mission-item">
+                            <i class="fas fa-check mission-icon"></i>
+                            <p>Appels sortants : vérifications techniques, redémarrage équipements, tests de connectivité</p>
                         </div>
-                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent);">
-                            <p style="color: var(--text-gray); line-height: 1.6;">
-                                ✓ Ouverture et suivi de tickets auprès des opérateurs de boucle locale (OBL)
-                            </p>
+                        <div class="mission-item">
+                            <i class="fas fa-check mission-icon"></i>
+                            <p>Ouverture et suivi de tickets auprès des opérateurs de boucle locale (OBL)</p>
                         </div>
-                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent);">
-                            <p style="color: var(--text-gray); line-height: 1.6;">
-                                ✓ Suivi d'interventions techniques sur site avec les techniciens SAV
-                            </p>
+                        <div class="mission-item">
+                            <i class="fas fa-check mission-icon"></i>
+                            <p>Suivi d'interventions techniques sur site avec les techniciens SAV</p>
                         </div>
-                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent);">
-                            <p style="color: var(--text-gray); line-height: 1.6;">
-                                ✓ Connexion à distance aux équipements réseau pour vérifier le rétablissement du service
-                            </p>
+                        <div class="mission-item">
+                            <i class="fas fa-check mission-icon"></i>
+                            <p>Connexion à distance aux équipements réseau pour vérifier le rétablissement du service</p>
                         </div>
-                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent);">
-                            <p style="color: var(--text-gray); line-height: 1.6;">
-                                ✓ Paramétrage d'équipements réseau Cisco et Keenetic : DHCP, VLAN et DNS
-                            </p>
+                        <div class="mission-item">
+                            <i class="fas fa-check mission-icon"></i>
+                            <p>Paramétrage d'équipements réseau Cisco et Keenetic : DHCP, VLAN et DNS</p>
                         </div>
-                        <div style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; border-left: 3px solid var(--accent);">
-                            <p style="color: var(--text-gray); line-height: 1.6;">
-                                ✓ Communication écrite avec les clients via les tickets pour suivre l'évolution des incidents
-                            </p>
+                        <div class="mission-item">
+                            <i class="fas fa-check mission-icon"></i>
+                            <p>Communication écrite avec les clients via les tickets pour suivre l'évolution des incidents</p>
                         </div>
                     </div>
                 </div>
@@ -1660,39 +1716,42 @@
                 </div>
 
                 <!-- Compétences développées -->
-                <h4 style="color: var(--primary-color); margin-bottom: 1.5rem; font-size: 1.3rem;">
+                <h4 style="color: var(--primary-color); margin-bottom: 1.2rem; font-size: 1.3rem;">
                     <i class="fas fa-graduation-cap"></i> Compétences développées
                 </h4>
-                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem;">
-                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);">
-                        🔍 Diagnostic d'incidents réseau
-                    </span>
-                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);">
-                        🎫 Gestion de tickets
-                    </span>
-                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);">
-                        🌐 Configuration réseau (Cisco, Keenetic)
-                    </span>
-                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);">
-                        🎧 Support technique client
-                    </span>
-                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);">
-                        💬 Communication professionnelle
-                    </span>
-                    <span style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 25px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);">
-                        🔧 Paramétrage DHCP, VLAN, DNS
-                    </span>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem;">
+                    <span class="competence-badge"><i class="fas fa-search"></i> Diagnostic d'incidents réseau</span>
+                    <span class="competence-badge"><i class="fas fa-ticket-alt"></i> Gestion de tickets</span>
+                    <span class="competence-badge"><i class="fas fa-network-wired"></i> Configuration réseau (Cisco, Keenetic)</span>
+                    <span class="competence-badge"><i class="fas fa-headset"></i> Support technique client</span>
+                    <span class="competence-badge"><i class="fas fa-comments"></i> Communication professionnelle</span>
+                    <span class="competence-badge"><i class="fas fa-tools"></i> Paramétrage DHCP, VLAN, DNS</span>
+                </div>
+
+                <!-- Documentation des interventions -->
+                <div class="doc-card">
+                    <h4 style="color: var(--primary-dark); margin-bottom: 0.8rem; font-size: 1.15rem;">
+                        <i class="fas fa-file-alt"></i> Documentation des interventions
+                    </h4>
+                    <p style="color: var(--text-gray); margin-bottom: 1.2rem; font-size: 1rem;">
+                        Retrouvez le détail de mes tickets et interventions réalisés pendant le stage.
+                    </p>
+                    <a href="https://abraham-e19.github.io/realisations-bts/support-incidents-linkt.html" target="_blank"
+                       class="btn" style="background: var(--primary-dark); display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-file-alt"></i> Consulter la documentation
+                    </a>
                 </div>
 
                 <!-- Boutons -->
-                <div style="text-align: center; margin-top: 3rem;">
+                <div style="text-align: center; margin-top: 2rem;">
                     <a href="https://www.linkt.fr" target="_blank" class="btn" style="margin: 0.5rem;">
                         <i class="fas fa-globe"></i> Site web Linkt
                     </a>
-                    <a href="https://www.youtube.com/watch?v=YBNN7Z2jmYE" target="_blank" class="btn" style="margin: 0.5rem; background: #ff0000;">
+                    <a href="https://www.youtube.com/watch?v=YBNN7Z2jmYE" target="_blank" class="btn" style="margin: 0.5rem; background: #dc2626;">
                         <i class="fab fa-youtube"></i> Vidéo de présentation
                     </a>
                 </div>
+
             </div>
         </div>
     </section>
