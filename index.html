@@ -774,9 +774,9 @@
 
         .projet-card {
             background: var(--bg-secondary);
-            border-radius: 15px;
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(14, 165, 233, 0.12);
             transition: var(--transition);
             height: 100%;
             display: flex;
@@ -784,26 +784,52 @@
         }
 
         .projet-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-color);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(14, 165, 233, 0.13);
+            border-color: rgba(14, 165, 233, 0.4);
         }
 
         .projet-image {
             width: 100%;
-            height: 200px;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
             overflow: hidden;
         }
 
-        .projet-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
+        .projet-image::before {
+            content: '';
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+            right: -40px;
+            top: -40px;
         }
 
-        .projet-card:hover .projet-image img {
+        .projet-image::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 50%;
+            left: -20px;
+            bottom: -20px;
+        }
+
+        .projet-image i {
+            font-size: 3.2rem;
+            color: rgba(255, 255, 255, 0.92);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .projet-card:hover .projet-image i {
             transform: scale(1.1);
         }
 
@@ -815,37 +841,38 @@
         }
 
         .projet-content h3 {
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             color: var(--primary-color);
-            font-size: 1.5rem;
+            font-size: 1.25rem;
+            line-height: 1.3;
         }
 
         .projet-content p {
             color: var(--text-gray);
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
+            margin-bottom: 1.2rem;
         }
 
         .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: auto;
+            gap: 0.45rem;
+            margin-bottom: 1.5rem;
         }
 
         .tag {
-            padding: 0.3rem 1rem;
-            background: var(--bg-dark);
+            padding: 0.28rem 0.85rem;
+            background: rgba(14, 165, 233, 0.07);
             border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            transition: var(--transition);
+            font-size: 0.78rem;
+            color: var(--primary-color);
+            border: 1.5px solid rgba(14, 165, 233, 0.25);
+            font-weight: 500;
+            transition: all 0.2s ease;
         }
 
         .tag:hover {
-            background: var(--accent);
-            color: var(--bg-dark);
+            background: rgba(14, 165, 233, 0.15);
+            border-color: var(--primary-color);
         }
 
         .project-details {
@@ -1756,7 +1783,7 @@
         </div>
     </section>
 
-   <!-- PROJETS -->
+    <!-- PROJETS -->
     <section id="epreuves">
         <div class="container">
             <h2>Mes Projets & Réalisations</h2>
@@ -1766,102 +1793,104 @@
 
             <div class="projets-grid">
 
-                <!-- Projet 1 : Clinique Pasteur 1.0 -->
+                <!-- Projet 2 : Clinique Pasteur – Sécurisation réseau & VPN -->
                 <div class="projet-card">
-                    <div class="projet-image">
-                        🏥
+                    <div class="projet-image" style="background: linear-gradient(135deg, #0EA5E9, #0369a1);">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
                     <div class="projet-content">
-                        <h3>Clinique Pasteur 1.0</h3>
-                        <p style="margin-bottom: 1.5rem;">
-                            Projet de mise en place et sécurisation d'une infrastructure réseau pour une clinique médicale. 
-                            Configuration des équipements réseau, segmentation et mise en œuvre de politiques de sécurité.
+                        <h3>Projet 2 – Clinique Pasteur : Sécurisation réseau & VPN</h3>
+                        <p>
+                            Modernisation de l'infrastructure réseau de la Clinique Pasteur. Mise en place d'un serveur web IIS en DMZ, base de données MySQL isolée, sécurisation des flux via pare-feu Stormshield et tunnel VPN SSL pour les médecins en accès distant.
                         </p>
 
-                        <div style="background: var(--bg-dark); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border-left: 3px solid var(--primary-color);">
-                            <p style="color: var(--text-gray); margin-bottom: 0.5rem;"><strong style="color: var(--text-light);">Contexte :</strong> Projet en atelier professionnel réalisé en formation</p>
-                            <p style="color: var(--text-gray); margin-bottom: 0.5rem;"><strong style="color: var(--text-light);">Objectif :</strong> Déployer une infrastructure réseau sécurisée pour un environnement médical</p>
-                            <p style="color: var(--text-gray);"><strong style="color: var(--text-light);">Résultat :</strong> Infrastructure opérationnelle avec segmentation réseau et sécurité renforcée</p>
+                        <div style="background: var(--bg-dark); padding: 1rem; border-radius: 8px; margin-bottom: 1.2rem; border-left: 3px solid var(--primary-color);">
+                            <p style="color: var(--text-gray); margin-bottom: 0.4rem;"><strong style="color: var(--text-light);">Contexte :</strong> Projet en atelier professionnel réalisé en formation</p>
+                            <p style="color: var(--text-gray); margin-bottom: 0.4rem;"><strong style="color: var(--text-light);">Objectif :</strong> Infrastructure sécurisée avec DMZ, isolation des données et accès VPN</p>
+                            <p style="color: var(--text-gray); margin: 0;"><strong style="color: var(--text-light);">Résultat :</strong> Pare-feu Stormshield opérationnel, VPN SSL fonctionnel</p>
                         </div>
 
-                        <div class="tags" style="margin-bottom: 1.5rem;">
-                            <span class="tag">Infrastructure</span>
-                            <span class="tag">Réseau</span>
-                            <span class="tag">Sécurité</span>
-                            <span class="tag">Configuration</span>
-                        </div>
-
-                        <div style="text-align: center;">
-                            <a href="https://drive.google.com/uc?export=view&id=1VXjxSQr_QoXZ6PlRsylXSrcw9B3gOOIy" target="_blank" class="btn" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); padding: 0.8rem 2rem; font-size: 0.95rem;">
-                                <i class="fas fa-file-pdf"></i> Voir la fiche projet
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 2 : Clinique Pasteur 2.0 -->
-                <div class="projet-card">
-                    <div class="projet-image">
-                        🔐
-                    </div>
-                    <div class="projet-content">
-                        <h3>Clinique Pasteur 2.0</h3>
-                        <p style="margin-bottom: 1.5rem;">
-                            Évolution du projet initial avec renforcement de la sécurité réseau, mise en place d'un pare-feu 
-                            Stormshield et définition de règles de filtrage avancées pour protéger l'infrastructure.
-                        </p>
-
-                        <div style="background: var(--bg-dark); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border-left: 3px solid var(--accent);">
-                            <p style="color: var(--text-gray); margin-bottom: 0.5rem;"><strong style="color: var(--text-light);">Contexte :</strong> Projet en atelier professionnel - évolution de la version 1.0</p>
-                            <p style="color: var(--text-gray); margin-bottom: 0.5rem;"><strong style="color: var(--text-light);">Objectif :</strong> Sécuriser les flux réseau avec un pare-feu nouvelle génération</p>
-                            <p style="color: var(--text-gray);"><strong style="color: var(--text-light);">Résultat :</strong> Maîtrise des règles de filtrage et de la sécurité périmétrique</p>
-                        </div>
-
-                        <div class="tags" style="margin-bottom: 1.5rem;">
+                        <div class="tags">
                             <span class="tag">Stormshield</span>
-                            <span class="tag">Firewall</span>
-                            <span class="tag">Filtrage</span>
-                            <span class="tag">Sécurité avancée</span>
+                            <span class="tag">VPN SSL</span>
+                            <span class="tag">DMZ</span>
+                            <span class="tag">IIS</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Sécurité</span>
                         </div>
 
-                        <div style="text-align: center;">
-                            <a href="#" class="btn" style="background: var(--bg-secondary); padding: 0.8rem 2rem; font-size: 0.95rem; cursor: not-allowed; opacity: 0.6;">
-                                <i class="fas fa-clock"></i> Document à venir
+                        <div style="text-align: center; margin-top: auto;">
+                            <a href="https://abraham-e19.github.io/portfolio-projet-bts/" target="_blank"
+                               class="btn" style="padding: 0.8rem 2rem; font-size: 0.95rem;">
+                                <i class="fas fa-external-link-alt"></i> Voir la fiche projet
                             </a>
-                            <p style="color: var(--text-gray); font-size: 0.85rem; margin-top: 0.5rem;">
-                                (Fiche disponible prochainement)
-                            </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Projet 3 : Production de stage chez Linkt -->
+                <!-- Projet 3 : Clinique Pasteur – Haute Disponibilité -->
                 <div class="projet-card">
-                    <div class="projet-image">
-                        📱
+                    <div class="projet-image" style="background: linear-gradient(135deg, #7c3aed, #0284C7);">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="projet-content">
+                        <h3>Projet 3 – Clinique Pasteur : Haute Disponibilité</h3>
+                        <p>
+                            Mise en place d'une infrastructure haute disponibilité pour l'application mobile de la Clinique Pasteur. Reverse proxy Nginx répartissant la charge entre deux serveurs Node.js, PM2 pour le redémarrage automatique et accès distant via Ngrok.
+                        </p>
+
+                        <div style="background: var(--bg-dark); padding: 1rem; border-radius: 8px; margin-bottom: 1.2rem; border-left: 3px solid #7c3aed;">
+                            <p style="color: var(--text-gray); margin-bottom: 0.4rem;"><strong style="color: var(--text-light);">Contexte :</strong> Projet en atelier professionnel – suite Clinique Pasteur</p>
+                            <p style="color: var(--text-gray); margin-bottom: 0.4rem;"><strong style="color: var(--text-light);">Objectif :</strong> Assurer la continuité de service via load balancing et supervision</p>
+                            <p style="color: var(--text-gray); margin: 0;"><strong style="color: var(--text-light);">Résultat :</strong> Application disponible en continu avec basculement automatique</p>
+                        </div>
+
+                        <div class="tags">
+                            <span class="tag">Nginx</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">PM2</span>
+                            <span class="tag">Ngrok</span>
+                            <span class="tag">Load Balancing</span>
+                            <span class="tag">Haute dispo</span>
+                        </div>
+
+                        <div style="text-align: center; margin-top: auto;">
+                            <a href="https://abraham-e19.github.io/portfolio-projet-bts/" target="_blank"
+                               class="btn" style="padding: 0.8rem 2rem; font-size: 0.95rem;">
+                                <i class="fas fa-external-link-alt"></i> Voir la fiche projet
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Production de stage chez Linkt -->
+                <div class="projet-card">
+                    <div class="projet-image" style="background: linear-gradient(135deg, #0EA5E9, #64748B);">
+                        <i class="fas fa-headset"></i>
                     </div>
                     <div class="projet-content">
                         <h3>Production de stage chez Linkt</h3>
-                        <p style="margin-bottom: 1.5rem;">
-                            Rapport détaillé de mon stage au sein de l'opérateur télécom Linkt. 
+                        <p>
+                            Rapport détaillé de mon stage au sein de l'opérateur télécom Linkt.
                             Présentation des missions réalisées, compétences développées et bilan de l'expérience professionnelle.
                         </p>
 
-                        <div style="background: var(--bg-dark); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border-left: 3px solid var(--secondary-color);">
-                            <p style="color: var(--text-gray); margin-bottom: 0.5rem;"><strong style="color: var(--text-light);">Période :</strong> 12 janvier au 13 février 2026</p>
-                            <p style="color: var(--text-gray); margin-bottom: 0.5rem;"><strong style="color: var(--text-light);">Entreprise :</strong> Linkt - Opérateur Fibre (Mont-Saint-Aignan)</p>
-                            <p style="color: var(--text-gray);"><strong style="color: var(--text-light);">Missions :</strong> Support client, gestion de tickets, diagnostic d'incidents réseau</p>
+                        <div style="background: var(--bg-dark); padding: 1rem; border-radius: 8px; margin-bottom: 1.2rem; border-left: 3px solid var(--secondary-color);">
+                            <p style="color: var(--text-gray); margin-bottom: 0.4rem;"><strong style="color: var(--text-light);">Période :</strong> 12 janvier au 13 février 2026</p>
+                            <p style="color: var(--text-gray); margin-bottom: 0.4rem;"><strong style="color: var(--text-light);">Entreprise :</strong> Linkt – Opérateur Fibre (Mont-Saint-Aignan)</p>
+                            <p style="color: var(--text-gray); margin: 0;"><strong style="color: var(--text-light);">Missions :</strong> Support client, gestion de tickets, diagnostic d'incidents réseau</p>
                         </div>
 
-                        <div class="tags" style="margin-bottom: 1.5rem;">
+                        <div class="tags">
                             <span class="tag">Support technique</span>
                             <span class="tag">Ticketing</span>
                             <span class="tag">Télécom</span>
                             <span class="tag">Relation client</span>
                         </div>
 
-                        <div style="text-align: center;">
-                            <a href="https://docs.google.com/document/d/1JIkPsF-CUZeLQkJlj1TeVSkKDGUmCYVh/edit?usp=sharing" target="_blank" class="btn" style="background: linear-gradient(135deg, var(--accent), var(--secondary-color)); padding: 0.8rem 2rem; font-size: 0.95rem;">
+                        <div style="text-align: center; margin-top: auto;">
+                            <a href="https://docs.google.com/document/d/1JIkPsF-CUZeLQkJlj1TeVSkKDGUmCYVh/edit?usp=sharing" target="_blank"
+                               class="btn" style="background: linear-gradient(135deg, var(--accent), var(--secondary-color)); padding: 0.8rem 2rem; font-size: 0.95rem;">
                                 <i class="fas fa-file-alt"></i> Voir le rapport de stage
                             </a>
                         </div>
