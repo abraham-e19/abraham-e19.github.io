@@ -465,14 +465,12 @@
 
         .profil-image-container {
             width: 100%;
-            max-width: 350px;
-            height: 350px;
-            border-radius: var(--border-radius);
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-lg);
+            max-width: 300px;
+            height: 320px;
+            border-radius: 20px;
+            background: transparent;
+            border: 3px solid rgba(14, 165, 233, 0.35);
+            box-shadow: 0 0 0 6px rgba(14, 165, 233, 0.07), var(--shadow-lg);
             position: relative;
             overflow: hidden;
         }
@@ -481,13 +479,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 25%;
-            border-radius: var(--border-radius);
+            object-position: center 20%;
             transition: var(--transition);
         }
 
         .profil-image-container:hover img {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
 
         .profil-text h3 {
@@ -510,61 +507,98 @@
         }
 
         .link-btn {
-            padding: 0.8rem 1.8rem;
+            padding: 0.7rem 1.5rem;
             background: var(--bg-secondary);
-            color: var(--text-light);
+            color: var(--text-lighter);
             text-decoration: none;
             border-radius: 10px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            border: 1.5px solid rgba(14, 165, 233, 0.25);
             transition: var(--transition);
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .link-btn i {
+            font-size: 1rem;
+            transition: transform 0.3s ease;
         }
 
         .link-btn:hover {
             background: var(--primary-color);
             border-color: var(--primary-color);
+            color: white;
             transform: translateY(-3px);
-            box-shadow: var(--shadow-primary);
+            box-shadow: 0 8px 24px rgba(14, 165, 233, 0.3);
         }
 
-        /* ===== COMPÉTENCES TECHNIQUES PROFIL ===== */
+        .link-btn:hover i {
+            transform: scale(1.2);
+        }
+
+        /* ===== COMPÉTENCES PROFIL ===== */
         .competences {
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         .competences h4 {
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.9rem;
             color: var(--text-lighter);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
-        .skills-grid {
+        .skills-categories {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 1rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.1rem;
         }
 
-        .skill-item {
-            background: var(--bg-secondary);
-            padding: 1rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+        .skill-category {
+            background: var(--bg-light);
+            border-radius: 14px;
+            padding: 1.1rem 1.2rem;
+            border: 1px solid rgba(14, 165, 233, 0.14);
         }
 
-        .skill-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
-            box-shadow: var(--shadow-primary);
-        }
-
-        .skill-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+        .skill-category-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             color: var(--primary-color);
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .skill-badge {
+            background: rgba(14, 165, 233, 0.07);
+            color: var(--text-lighter);
+            font-size: 0.74rem;
+            font-weight: 500;
+            padding: 0.22rem 0.6rem;
+            border-radius: 20px;
+            border: 1px solid rgba(14, 165, 233, 0.18);
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+
+        .skill-badge:hover {
+            background: rgba(14, 165, 233, 0.14);
+            color: var(--primary-color);
+            border-color: rgba(14, 165, 233, 0.45);
         }
 
         /* ===== ENTREPRISE ===== */
@@ -1192,6 +1226,10 @@
                 margin: 0 auto;
             }
 
+            .skills-categories {
+                grid-template-columns: 1fr;
+            }
+
             .entreprise-header {
                 flex-direction: column;
                 text-align: center;
@@ -1426,56 +1464,62 @@
                 <div class="profil-text fade-in">
                     <h3>À propos de moi</h3>
                     <p>
-                        Passionné par l'informatique et les technologies réseau depuis mon plus jeune âge, je suis actuellement en 2ème année de BTS SIO option SISR au Lycée Gustave Flaubert à Rouen. Mon parcours académique et mes expériences pratiques m'ont permis de développer des compétences solides en administration systèmes et réseaux, cybersécurité, virtualisation et support technique.
+                        En 2ème année de BTS SIO option SISR au Lycée Gustave Flaubert à Rouen, je suis passionné par les réseaux et la cybersécurité. J'ai réalisé un stage chez <strong>Linkt</strong>, opérateur télécom normand, où j'ai assuré le support réseau et le diagnostic d'incidents. En parallèle, je m'entraîne régulièrement sur <strong>TryHackMe</strong> et je vise une <strong>Licence Pro Réseaux & Cybersécurité</strong> en alternance.
                     </p>
-                    <p>
-                        Curieux et autodidacte, je m'intéresse particulièrement aux nouvelles technologies et aux bonnes pratiques en matière de sécurité informatique. J'apprécie les défis techniques et cherche toujours à optimiser les infrastructures pour les rendre plus performantes et sécurisées.
-                    </p>
-
-                    <div class="image-container mt-2" style="height: 180px;">
-                        <img src="https://images.unsplash.com/photo-1623479322729-28b25c16b011?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                             alt="Data center et infrastructure IT">
-                        <div class="image-overlay"></div>
-                    </div>
 
                     <div class="competences">
                         <h4>Compétences techniques</h4>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
-                                <div>Réseaux & VLAN</div>
+                        <div class="skills-categories">
+                            <div class="skill-category">
+                                <div class="skill-category-title">
+                                    <i class="fas fa-network-wired"></i>
+                                    Réseaux & Systèmes
+                                </div>
+                                <div class="skill-badges">
+                                    <span class="skill-badge">TCP/IP</span>
+                                    <span class="skill-badge">DHCP</span>
+                                    <span class="skill-badge">DNS</span>
+                                    <span class="skill-badge">VLAN</span>
+                                    <span class="skill-badge">AD DS</span>
+                                    <span class="skill-badge">GPO</span>
+                                    <span class="skill-badge">Windows Server</span>
+                                    <span class="skill-badge">Linux</span>
+                                    <span class="skill-badge">Proxmox</span>
+                                    <span class="skill-badge">VirtualBox</span>
+                                    <span class="skill-badge">Docker</span>
+                                    <span class="skill-badge">SecureCRT</span>
+                                    <span class="skill-badge">SSH</span>
+                                    <span class="skill-badge">Cisco Packet Tracer</span>
+                                </div>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
-                                <div>Cybersécurité</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-server"></i></div>
-                                <div>Windows Server</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-cloud"></i></div>
-                                <div>Virtualisation</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fab fa-linux"></i></div>
-                                <div>Linux</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-tools"></i></div>
-                                <div>Support Technique</div>
+                            <div class="skill-category">
+                                <div class="skill-category-title">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Cybersécurité
+                                </div>
+                                <div class="skill-badges">
+                                    <span class="skill-badge">Gestion des droits</span>
+                                    <span class="skill-badge">Wireshark</span>
+                                    <span class="skill-badge">Nmap</span>
+                                    <span class="skill-badge">Pare-feu</span>
+                                    <span class="skill-badge">VPN</span>
+                                    <span class="skill-badge">Stormshield</span>
+                                    <span class="skill-badge">Sécurisation postes</span>
+                                    <span class="skill-badge">Nagios</span>
+                                    <span class="skill-badge">TryHackMe</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="profil-links">
-                        <a href="https://drive.google.com/file/d/1PFlgObBcue_r_fW2hwmNRgsqYCU7SA8s/view?usp=sharing" class="link-btn" download>
-                            <i class="fas fa-download"></i> Télécharger CV
+                        <a href="https://drive.google.com/file/d/1PFlgObBcue_r_fW2hwmNRgsqYCU7SA8s/view?usp=sharing" class="link-btn" target="_blank">
+                            <i class="fas fa-file-pdf"></i> CV
                         </a>
                         <a href="https://www.linkedin.com/in/abraham-emmanuel-649816398/" target="_blank" class="link-btn">
                             <i class="fab fa-linkedin"></i> LinkedIn
                         </a>
-                        <a href="https://github.com/Braams19" target="_blank" class="link-btn">
+                        <a href="https://github.com/abraham-e19" target="_blank" class="link-btn">
                             <i class="fab fa-github"></i> GitHub
                         </a>
                     </div>
